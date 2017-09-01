@@ -1,4 +1,4 @@
-package com.zyqzyq.eyepetizer.fragments
+package com.zyqzyq.eyepetizer.ui.fragments
 
 import android.app.Fragment
 import android.os.Bundle
@@ -7,8 +7,12 @@ import android.view.View
 import android.view.ViewGroup
 import com.zyqzyq.eyepetizer.R
 
-class DiscoverFragment: Fragment(){
+class FollowFragment: Fragment(){
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+    }
+
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater?.inflate(R.layout.fragment_discover,container,false)
+        return inflater?.inflate(R.layout.fragment_follow,container,false)
     }
 }

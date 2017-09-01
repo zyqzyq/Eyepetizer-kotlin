@@ -1,4 +1,4 @@
-package com.zyqzyq.eyepetizer.activities
+package com.zyqzyq.eyepetizer.ui.activities
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle

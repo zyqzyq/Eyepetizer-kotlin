@@ -1,4 +1,4 @@
-package com.zyqzyq.eyepetizer.activities
+package com.zyqzyq.eyepetizer.ui.activities
 
 import android.content.Context
 import android.support.v7.app.AppCompatActivity
@@ -10,7 +10,7 @@ import com.zyqzyq.eyepetizer.MainData
 import com.zyqzyq.eyepetizer.R
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.tabview.view.*
-
+import kotlinx.android.synthetic.main.toolbar.*
 
 
 class MainActivity : AppCompatActivity() {
@@ -18,9 +18,12 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
         initView()
     }
     private fun initView(){
+
+        toolbar.inflateMenu(R.menu.toolbar_item)
         bottom_tab_layout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
             override fun onTabSelected(tab: TabLayout.Tab) {
                 onTabItemSelected(tab.position)

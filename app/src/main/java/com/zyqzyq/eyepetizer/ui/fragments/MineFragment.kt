@@ -1,4 +1,4 @@
-package com.zyqzyq.eyepetizer.fragments
+package com.zyqzyq.eyepetizer.ui.fragments
 
 import android.app.Fragment
 

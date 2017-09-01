@@ -1,9 +1,9 @@
 package com.zyqzyq.eyepetizer
 
-import com.zyqzyq.eyepetizer.fragments.DiscoverFragment
-import com.zyqzyq.eyepetizer.fragments.FollowFragment
-import com.zyqzyq.eyepetizer.fragments.HomeFragment
-import com.zyqzyq.eyepetizer.fragments.MineFragment
+import com.zyqzyq.eyepetizer.ui.fragments.DiscoverFragment
+import com.zyqzyq.eyepetizer.ui.fragments.FollowFragment
+import com.zyqzyq.eyepetizer.ui.fragments.HomeFragment
+import com.zyqzyq.eyepetizer.ui.fragments.MineFragment
 
 object MainData {
     val mainFragmentList = arrayOf(HomeFragment(), DiscoverFragment(), FollowFragment(), MineFragment())
@@ -13,3 +13,5 @@ object MainData {
             R.mipmap.ic_tab_follow_selected,R.mipmap.ic_tab_mine_selected)
     val mainTabStr = listOf("首页","发现","关注","我的")
 }
+
+val DAILY = "http://baobab.kaiyanapp.com/api/v4/tabs/selected"
