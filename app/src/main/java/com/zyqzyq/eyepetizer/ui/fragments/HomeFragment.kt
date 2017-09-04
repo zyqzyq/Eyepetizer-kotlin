@@ -17,7 +17,7 @@ import android.support.v7.widget.RecyclerView
 import android.util.Log
 import com.zyqzyq.eyepetizer.mvp.Model.bean.HomeBean
 import com.zyqzyq.eyepetizer.mvp.Model.bean.HomeItem
-
+import com.zyqzyq.eyepetizer.TAG
 
 class HomeFragment: Fragment(), HomeContract.View{
 
@@ -62,7 +62,6 @@ class HomeFragment: Fragment(), HomeContract.View{
                         onLoadMore()
                     }
 
-
                 }
             }
 
@@ -81,7 +80,6 @@ class HomeFragment: Fragment(), HomeContract.View{
 
         homeAdapter.setBannerSize(homeBean.count)
         homeAdapter.itemList = homeBean.itemList
-        Log.d(TAG,"SETFIRST")
         homeSwipeLayout.isRefreshing = false
     }
 
@@ -93,7 +91,5 @@ class HomeFragment: Fragment(), HomeContract.View{
         toast("网络错误")
     }
 
-    companion object {
-        val TAG = "HomeFragment"
-    }
+
 }

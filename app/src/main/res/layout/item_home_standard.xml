@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:layout_width="match_parent"
+              xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
               android:layout_height="match_parent"
               android:orientation="vertical">
 
@@ -8,7 +8,8 @@
             android:id="@+id/iv_cover"
             android:layout_width="match_parent"
             android:layout_height="250dp"
-            android:scaleType="fitXY"/>
+            android:scaleType="fitXY"
+            android:src="@mipmap/home_page_header_cover" tools:ignore="ContentDescription"/>
 
     <RelativeLayout
             android:layout_width="match_parent"
@@ -20,7 +21,8 @@
                 android:layout_width="38dp"
                 android:layout_height="38dp"
                 android:layout_centerVertical="true"
-                android:layout_marginLeft="15dp"/>
+                android:layout_marginLeft="15dp"
+                android:src="@mipmap/pgc_default_avatar" tools:ignore="ContentDescription,RtlHardcoded"/>
 
         <LinearLayout
                 android:layout_width="wrap_content"
@@ -29,7 +31,7 @@
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="15dp"
                 android:layout_toRightOf="@id/iv_avatar"
-                android:orientation="vertical">
+                android:orientation="vertical" tools:ignore="RelativeOverlap,RtlHardcoded">
 
             <TextView
                     android:singleLine="true"
@@ -38,13 +40,13 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="一敲二腌三过油，轻松学会炒牛柳"
-                    android:textSize="15sp" />
+                    android:textSize="15sp" tools:ignore="Deprecated,HardcodedText"/>
 
             <TextView
                     android:id="@+id/tv_tag"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="11sp" />
+                    android:textSize="11sp" tools:ignore="SmallSp"/>
         </LinearLayout>
 
 
@@ -56,13 +58,13 @@
                 android:layout_centerVertical="true"
                 android:layout_marginRight="15dp"
                 android:text="2天前"
-                android:textSize="15sp" />
+                android:textSize="15sp" tools:ignore="HardcodedText,RtlHardcoded"/>
 
         <View
                 android:layout_width="match_parent"
                 android:layout_height="1px"
                 android:layout_alignParentBottom="true"
                 android:layout_marginLeft="15dp"
-                android:background="@android:color/darker_gray" />
+                android:background="@android:color/darker_gray" tools:ignore="RtlHardcoded"/>
     </RelativeLayout>
 </LinearLayout>

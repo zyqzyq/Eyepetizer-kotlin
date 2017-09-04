@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:tools="http://schemas.android.com/tools" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:tools="http://schemas.android.com/tools"
+      xmlns:app="http://schemas.android.com/apk/res-auto"
+      xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
             android:id="@+id/app_bar_search"
-            android:icon="@drawable/ic_search_black_24dp"
-            android:title="Search" android:actionViewClass="android.widget.SearchView" app:showAsAction="ifRoom"
+            android:icon="@mipmap/ic_action_search_white"
+            android:title="Search"
+            app:showAsAction="ifRoom"
             tools:ignore="HardcodedText"/>
 </menu>

@@ -44,7 +44,11 @@ data class HomeItem(val type: String, val data: Data?, val tag: String) : Serial
                     val played: Boolean,
                     val subtitles: Any,
                     val lastViewTime: Any,
-                    val playlists: Any
+                    val playlists: Any,
+                    val font:String,
+                    val header: Header,
+                    val itemList:ArrayList<HomeItem>
+
     ) : Serializable {
         data class Tag(val id: Int, val name: String, val actionUrl: String, val adTrack: Any) : Serializable
         data class Author(val icon: String, val name: String, val description: String) : Serializable
@@ -60,6 +64,11 @@ data class HomeItem(val type: String, val data: Data?, val tag: String) : Serial
         data class User(val uid: Long, val nickname: String, val avatar: String, val userType: String, val ifPgc: Boolean) : Serializable
         data class ParentReply(val user: User, val message: String) : Serializable
         data class Url(val size: Long) : Serializable
+
+        data class Header(val id: Int,val title: Any,val font: String,val cover: String,val label: Label,
+                          val actionUrl: String , val labelList: ArrayList<Label>): Serializable{
+            data class Label(val text: String,val card: String,val detial: Any,val actionUrl: Any)
+        }
 
     }
 }

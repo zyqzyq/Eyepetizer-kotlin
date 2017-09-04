@@ -5,6 +5,7 @@ import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 
+const val TAG = "HOME"
 
 fun <T> Observable<T>.io_main(): Observable<T> {
     return subscribeOn(Schedulers.io())

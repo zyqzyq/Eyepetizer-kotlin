@@ -42,8 +42,8 @@ class HomeStandardItem : FrameLayout {
             override fun setResource(resource: Bitmap?) {
                 super.setResource(resource)
                 val circularBitmapDrawable = RoundedBitmapDrawableFactory.create(resources, resource)
-                circularBitmapDrawable.setCircular(true);
-                iv_avatar.setImageDrawable(circularBitmapDrawable);
+                circularBitmapDrawable.isCircular=true
+                iv_avatar.setImageDrawable(circularBitmapDrawable)
             }
         }
         if (avatar == null || "" == avatar) {

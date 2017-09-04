@@ -10,7 +10,7 @@ import android.widget.TextView
 
 class HomeTextHeaderItem : FrameLayout {
 
-    val textView by lazy {
+    private val textView by lazy {
         TextView(context)
     }
 
@@ -25,13 +25,13 @@ class HomeTextHeaderItem : FrameLayout {
         textView.textSize = 20f
 //        textView.typeface = Typeface.createFromAsset(context?.assets, "fonts/Lobster-1.4.otf")
         val paint = textView.paint
-        paint.setFakeBoldText(true)
+        paint.isFakeBoldText = true
         textView.setTextColor(Color.BLACK)
         addView(textView)
     }
 
 
     fun setHeaderText(text: String?) {
-        textView.setText(text)
+        textView.text = text
     }
 }

@@ -13,7 +13,7 @@ interface ApiService {
      * banner+一页数据，num=1
      */
 //    @GET("v2/feed?&num=1")
-    @GET("v4/tabs/selected")
+    @GET("v4/tabs/selected?&num=1")
     fun getFirstHomeData(@Query("date") date: Long): Observable<HomeBean>
 
     /**

@@ -1,7 +1,10 @@
 package com.zyqzyq.eyepetizer.mvp
 
+import android.util.Log
 import com.zyqzyq.eyepetizer.mvp.Model.HomeModel
 import com.zyqzyq.eyepetizer.mvp.Model.bean.HomeBean
+import com.zyqzyq.eyepetizer.mvp.Model.bean.HomeItem
+import com.zyqzyq.eyepetizer.TAG
 
 class HomePresenter(view: HomeContract.View): HomeContract.Presenter{
     private val homeView: HomeContract.View
@@ -10,29 +13,38 @@ class HomePresenter(view: HomeContract.View): HomeContract.Presenter{
     init {
         homeView = view
     }
-    var bannerHomeBean: HomeBean? = null
+    var mHomeBean: HomeBean? = null
     override fun requestFirstData() {
         homeModel.loadFirstData()
-                .flatMap({ homeBean ->
-                    bannerHomeBean = homeBean
-                    homeModel.loadMoreData(homeBean.nextPageUrl)
-                })
                 .subscribe({ homeBean ->
                     nextPageUrl = homeBean.nextPageUrl
-                    //过滤掉banner2item
-                    homeView.setFirstData(bannerHomeBean!!)
-                }, { t ->
-                    t.printStackTrace()
-                    homeView.onError()
+                    mHomeBean = homeBean
+                    Log.d(TAG,nextPageUrl)
+                    //
+                    val newItemList = arrayListOf<HomeItem>()
+                    homeBean.itemList.filter { item -> item.type == "videoCollectionWithCover" }
+                            .forEach { newItemList.addAll(it.data!!.itemList) }
+                    homeBean.itemList.filter { item -> item.type == "videoCollectionWithFollow" }
+                            .forEach { newItemList.addAll(it.data!!.itemList) }
+                    homeBean.itemList.addAll(newItemList)
+                    homeView.setFirstData(homeBean)
                 })
 
     }
 
     override fun requestMoreData() {
        nextPageUrl?.let {
+           Log.d(TAG,nextPageUrl)
            homeModel.loadMoreData(it)
                    .subscribe({  homeBean ->
-                       //过滤掉banner2item
+                       //过滤掉banner
+                       val newItemList = arrayListOf<HomeItem>()
+
+                       homeBean.itemList.filter { item -> item.type == "videoCollectionWithCover" }
+                               .forEach { newItemList.addAll(it.data!!.itemList) }
+                       homeBean.itemList.filter { item -> item.type == "videoCollectionWithFollow" }
+                               .forEach { newItemList.addAll(it.data!!.itemList) }
+                       homeBean.itemList.addAll(newItemList)
                        homeView.setMoreData(homeBean.itemList)
                        nextPageUrl = homeBean.nextPageUrl
                    })
