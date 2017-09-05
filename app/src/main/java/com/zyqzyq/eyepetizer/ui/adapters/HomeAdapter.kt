@@ -8,19 +8,25 @@ import com.zyqzyq.eyepetizer.mvp.Model.bean.HomeItem
 import com.zyqzyq.eyepetizer.ui.view.HomeStandardItem
 import com.zyqzyq.eyepetizer.ui.view.HomeTextHeaderItem
 import com.zyqzyq.eyepetizer.TAG
+import com.zyqzyq.eyepetizer.ui.view.HomeTextFooterItem
+import com.zyqzyq.eyepetizer.ui.view.home.HomeBanner
 
-
+/**
+ * 首页 adapter
+ * 分4种类型分别显示
+* */
 class HomeAdapter : RecyclerView.Adapter<HomeAdapter.ViewHolder>() {
 
-
+    private var isNewBanner = false
     //首次获取数据
     var itemList: ArrayList<HomeItem> = ArrayList()
         set(value) {
             field = value
+            isNewBanner =true
             notifyDataSetChanged()
         }
 
-    var bannerItemListCount = 0
+    private var bannerItemListCount = 0
 
     fun addData(itemList: ArrayList<HomeItem>) {
         this.itemList.addAll(itemList)
@@ -32,15 +38,24 @@ class HomeAdapter : RecyclerView.Adapter<HomeAdapter.ViewHolder>() {
         Log.d(TAG,position.toString())
         Log.d(TAG,itemList[position].toString())
         when (itemViewType) {
-//            TYPE_BANNER -> (holder?.itemView as HomeBanner).setData(itemList.take(bannerItemListCount).toCollection(ArrayList()))
-            TYPE_STANDARD -> (holder?.itemView as HomeStandardItem).setData(itemList[position])
-            TYPE_TEXT_HEADER -> (holder?.itemView as HomeTextHeaderItem).setHeaderText(itemList[position].data?.text)
-            TYPE_TEXT_FOOTER -> (holder?.itemView as HomeTextHeaderItem).setHeaderText(itemList[position].data?.text)
+            TYPE_BANNER -> {
+                if (isNewBanner) {
+                    isNewBanner = false
+                    (holder?.itemView as HomeBanner).setData(itemList.take(bannerItemListCount).toCollection(ArrayList()))
+                }
+            }
+            TYPE_STANDARD -> (holder?.itemView as HomeStandardItem).setData(itemList[position+ bannerItemListCount -1])
+            TYPE_TEXT_HEADER -> (holder?.itemView as HomeTextHeaderItem).setHeaderText(itemList[position+ bannerItemListCount -1].data?.text)
+//            TYPE_TEXT_FOOTER -> (holder?.itemView as HomeTextFooterItem).setFooterText(itemList[position+ bannerItemListCount -1].data?.text)
         }
     }
 
     override fun getItemCount(): Int {
-        return itemList.size
+        return when {
+            itemList.size > bannerItemListCount -> itemList.size - bannerItemListCount + 1
+            itemList.size == 0 -> 0
+            else -> 1
+        }
     }
 
     private val TYPE_BANNER = 1
@@ -50,31 +65,34 @@ class HomeAdapter : RecyclerView.Adapter<HomeAdapter.ViewHolder>() {
 
 
     override fun getItemViewType(position: Int): Int {
-        if (position > bannerItemListCount-1) return TYPE_BANNER
-        when(itemList[position].type ) {
-            "video" -> return TYPE_STANDARD
+        if (position == 0 ) return TYPE_BANNER
+        return when(itemList[position + bannerItemListCount -1].type ) {
+            "video" -> TYPE_STANDARD
 
-            "textHeader"-> return TYPE_TEXT_HEADER
+            "textHeader"-> TYPE_TEXT_HEADER
 
-            "textFooter" -> return TYPE_TEXT_FOOTER
+            "textFooter" -> TYPE_TEXT_FOOTER
 
-            else -> return 0
+            else -> 0
         }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): ViewHolder {
         when (viewType) {
-//            TYPE_BANNER -> return ViewHolder(HomeBanner(parent!!.context))
+            TYPE_BANNER -> return ViewHolder(HomeBanner(parent!!.context))
 
             TYPE_STANDARD -> {
                 val textView = HomeStandardItem(parent!!.context)
                 return ViewHolder(textView)
             }
-
+            TYPE_TEXT_FOOTER ->{
+                val headerText = HomeTextFooterItem(parent!!.context)
+                return ViewHolder(headerText)
+            }
             else -> {
                 val headerText = HomeTextHeaderItem(parent!!.context)
                 headerText.layoutParams = RecyclerView.LayoutParams(RecyclerView.LayoutParams.MATCH_PARENT,
-                        80)
+                        RecyclerView.LayoutParams.WRAP_CONTENT)
                 return ViewHolder(headerText)
             }
         }

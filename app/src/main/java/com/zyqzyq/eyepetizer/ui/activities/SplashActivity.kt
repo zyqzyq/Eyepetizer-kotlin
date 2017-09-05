@@ -6,7 +6,9 @@ import com.zyqzyq.eyepetizer.R
 import android.os.Handler
 import org.jetbrains.anko.startActivity
 
-
+/**
+简单的启动页面
+*/
 class SplashActivity : AppCompatActivity() {
     private val SPLASH_TIME_OUT = 300L
     override fun onCreate(savedInstanceState: Bundle?) {

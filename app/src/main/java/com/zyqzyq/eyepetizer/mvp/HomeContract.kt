@@ -3,10 +3,13 @@ package com.zyqzyq.eyepetizer.mvp
 import com.zyqzyq.eyepetizer.mvp.Model.bean.HomeBean
 import com.zyqzyq.eyepetizer.mvp.Model.bean.HomeItem
 import com.zyqzyq.eyepetizer.mvp.base.BaseView
-
+/**
+ * MVP接口
+ *
+* */
 interface HomeContract{
     interface View: BaseView<Presenter> {
-        fun setFirstData(homeBean: HomeBean)
+        fun setFirstData(homeBean: HomeBean, bannerSize: Int)
         fun setMoreData(itemList: ArrayList<HomeItem>)
         fun onError()
     }

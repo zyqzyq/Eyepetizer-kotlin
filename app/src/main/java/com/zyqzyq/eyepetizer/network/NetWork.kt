@@ -1,6 +1,7 @@
 package com.zyqzyq.eyepetizer.network
 
 import android.util.Log
+import com.zyqzyq.eyepetizer.TAG
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
@@ -8,6 +9,10 @@ import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 
+/**
+ * okhttp+retrofit+rxjava
+ * 用之，虽然不是很懂
+* */
 object Network {
     private val retrofit: Retrofit
     private val base_url: String = "http://baobab.kaiyanapp.com/api/"
@@ -15,14 +20,14 @@ object Network {
     private val okHttpClient: OkHttpClient
 
     init {
-        val longging = Interceptor { chain ->
+        val longing = Interceptor { chain ->
             val request = chain.request()
-            Log.d("okhttp", "okhttp--->" + request.url().toString())
+            Log.d(TAG, "okhttp--->" + request.url().toString())
             chain.proceed(request)
         }
         okHttpClient = OkHttpClient.Builder()
                 .connectTimeout(DEFAULT_TIMEOUT, TimeUnit.SECONDS)
-                .addInterceptor(longging)
+                .addInterceptor(longing)
                 .build()
 
         retrofit = Retrofit.Builder()

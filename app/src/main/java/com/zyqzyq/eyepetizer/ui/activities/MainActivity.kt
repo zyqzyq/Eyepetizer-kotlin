@@ -14,7 +14,11 @@ import kotlinx.android.synthetic.main.tabview.view.*
 import kotlinx.android.synthetic.main.toolbar.*
 import org.jetbrains.anko.toast
 
-
+/**
+*主页面
+ * 主要实现底部导航栏
+ * 将toolbar放在主页面上
+* */
 class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {

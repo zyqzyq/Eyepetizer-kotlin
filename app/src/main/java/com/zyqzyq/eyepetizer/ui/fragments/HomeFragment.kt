@@ -19,10 +19,17 @@ import com.zyqzyq.eyepetizer.mvp.Model.bean.HomeBean
 import com.zyqzyq.eyepetizer.mvp.Model.bean.HomeItem
 import com.zyqzyq.eyepetizer.TAG
 
+/**
+ * 首页（使用recyclerView 显示个个项目）
+ * 1.显示banner（viewpager + indicator）
+ * 2.显示textHeader(打算后期在写个往期编辑精选的页面，到时候再改)
+ * 3.显示textFooter
+ * 4.显示每个视频的图片介绍信息
+* */
 class HomeFragment: Fragment(), HomeContract.View{
 
     private val homeAdapter: HomeAdapter by lazy { HomeAdapter() }
-    lateinit var presenter:HomePresenter
+    private lateinit var presenter:HomePresenter
     override fun setPresenter(presenter: HomeContract.Presenter) {
         this.presenter = presenter as HomePresenter
     }
@@ -42,13 +49,11 @@ class HomeFragment: Fragment(), HomeContract.View{
         homeRecyclerView.adapter = homeAdapter
         homeRecyclerView.layoutManager = LinearLayoutManager(activity)
 
-        homeSwipeLayout.setOnRefreshListener(object: SwipeRefreshLayout.OnRefreshListener{
-            override fun onRefresh() {
-                toast("刷新")
-//                homeSwipeLayout.isRefreshing = false
-                presenter.requestFirstData()
-            }
-        })
+        homeSwipeLayout.setOnRefreshListener {
+//            下拉刷新，暂未实现下拉以后第一张图放大功能,未自定义刷新图标
+            toast("刷新")
+            presenter.requestFirstData()
+        }
 
         homeRecyclerView.addOnScrollListener(object :RecyclerView.OnScrollListener(){
             override fun onScrollStateChanged(recyclerView: RecyclerView?, newState: Int) {
@@ -56,9 +61,10 @@ class HomeFragment: Fragment(), HomeContract.View{
                 if(newState == RecyclerView.SCROLL_STATE_IDLE){
                     val childCount = homeRecyclerView.childCount
                     val itemCount = homeRecyclerView.layoutManager.itemCount
-                    val firstVisiableItem = (homeRecyclerView.layoutManager as LinearLayoutManager).findFirstVisibleItemPosition()
-                    if (firstVisiableItem + childCount == itemCount){
+                    val firstVisibleItem = (homeRecyclerView.layoutManager as LinearLayoutManager).findFirstVisibleItemPosition()
+                    if (firstVisibleItem + childCount == itemCount){
                         Log.d(TAG,"到底了")
+//                        下拉到底加载更多，暂未设置加载图标
                         onLoadMore()
                     }
 
@@ -67,6 +73,7 @@ class HomeFragment: Fragment(), HomeContract.View{
 
             override fun onScrolled(recyclerView: RecyclerView?, dx: Int, dy: Int) {
                 super.onScrolled(recyclerView, dx, dy)
+
             }
         })
 
@@ -76,9 +83,9 @@ class HomeFragment: Fragment(), HomeContract.View{
         presenter.requestMoreData()
     }
 
-    override fun setFirstData(homeBean: HomeBean) {
-
-        homeAdapter.setBannerSize(homeBean.count)
+    override fun setFirstData(homeBean: HomeBean,bannerSize: Int) {
+        Log.d(TAG,bannerSize.toString())
+        homeAdapter.setBannerSize(bannerSize)
         homeAdapter.itemList = homeBean.itemList
         homeSwipeLayout.isRefreshing = false
     }

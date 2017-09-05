@@ -24,8 +24,7 @@ class HomeTextHeaderItem : FrameLayout {
         textView.gravity = Gravity.CENTER
         textView.textSize = 20f
 //        textView.typeface = Typeface.createFromAsset(context?.assets, "fonts/Lobster-1.4.otf")
-        val paint = textView.paint
-        paint.isFakeBoldText = true
+        textView.paint.isFakeBoldText = true
         textView.setTextColor(Color.BLACK)
         addView(textView)
     }

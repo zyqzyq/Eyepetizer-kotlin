@@ -12,7 +12,7 @@ import com.zyqzyq.eyepetizer.R
 import com.zyqzyq.eyepetizer.durationFormat
 import com.zyqzyq.eyepetizer.mvp.Model.bean.HomeItem
 import kotlinx.android.synthetic.main.item_home_standard.view.*
-
+/*adpater TYPE_VIDEO*/
 class HomeStandardItem : FrameLayout {
 
 
@@ -28,7 +28,7 @@ class HomeStandardItem : FrameLayout {
 
     fun setData(item: HomeItem) {
         val data = item.data
-        val homepage = data?.cover?.homepage
+        val homepage = data?.cover?.homepage ?:data?.cover?.feed
         var avatar = data?.author?.icon
         val avatarRes = R.mipmap.pgc_default_avatar
 
@@ -51,13 +51,13 @@ class HomeStandardItem : FrameLayout {
         } else {
             Glide.with(context).load(avatar).asBitmap().centerCrop().into(ivAvatarCircle)
         }
-        tv_title.setText(item.data?.title)
+        tv_title.text = item.data?.title
         var tagText = ""
         data?.tags?.take(4)?.forEach { tagText += (it.name + " / ") }
         val timeFromat = durationFormat(data?.duration)
         tagText += timeFromat
-        tv_tag.setText(tagText)
-        tv_category.setText(data?.category)
+        tv_tag.text = tagText
+        tv_category.text = data?.category
     }
 
 
