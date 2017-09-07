@@ -2,7 +2,6 @@ package com.zyqzyq.eyepetizer.ui.fragments
 
 import android.app.Fragment
 import android.os.Bundle
-import android.support.v4.widget.SwipeRefreshLayout
 import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
@@ -15,9 +14,12 @@ import kotlinx.android.synthetic.main.fragment_home.*
 import org.jetbrains.anko.toast
 import android.support.v7.widget.RecyclerView
 import android.util.Log
+import com.cjj.MaterialRefreshLayout
+import com.cjj.MaterialRefreshListener
 import com.zyqzyq.eyepetizer.mvp.Model.bean.HomeBean
 import com.zyqzyq.eyepetizer.mvp.Model.bean.HomeItem
 import com.zyqzyq.eyepetizer.TAG
+import com.zyqzyq.eyepetizer.ui.view.PullRecyclerView
 
 /**
  * 首页（使用recyclerView 显示个个项目）
@@ -49,11 +51,14 @@ class HomeFragment: Fragment(), HomeContract.View{
         homeRecyclerView.adapter = homeAdapter
         homeRecyclerView.layoutManager = LinearLayoutManager(activity)
 
-        homeSwipeLayout.setOnRefreshListener {
-//            下拉刷新，暂未实现下拉以后第一张图放大功能,未自定义刷新图标
-            toast("刷新")
-            presenter.requestFirstData()
-        }
+        homeRecyclerView.setOnRefreshListener(object : PullRecyclerView.OnRefreshListener{
+            override fun onRefresh() {
+                Log.d(TAG,"刷新")
+                toast("刷新")
+                presenter.requestFirstData()
+            }
+        })
+
 
         homeRecyclerView.addOnScrollListener(object :RecyclerView.OnScrollListener(){
             override fun onScrollStateChanged(recyclerView: RecyclerView?, newState: Int) {
@@ -87,7 +92,7 @@ class HomeFragment: Fragment(), HomeContract.View{
         Log.d(TAG,bannerSize.toString())
         homeAdapter.setBannerSize(bannerSize)
         homeAdapter.itemList = homeBean.itemList
-        homeSwipeLayout.isRefreshing = false
+        homeRecyclerView.hideLoading()
     }
 
     override fun setMoreData(itemList: ArrayList<HomeItem>) {
@@ -96,6 +101,7 @@ class HomeFragment: Fragment(), HomeContract.View{
 
     override fun onError() {
         toast("网络错误")
+        homeRecyclerView.hideLoading()
     }
 
 

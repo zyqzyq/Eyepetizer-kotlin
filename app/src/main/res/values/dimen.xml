@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="tabTextSize">10sp</dimen>
-    <dimen name="footerTextSize">16sp</dimen>
+    <dimen name="footerTextSize">12sp</dimen>
 </resources>

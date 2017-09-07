@@ -19,15 +19,17 @@ class HomePresenter(view: HomeContract.View): HomeContract.Presenter{
                     //
                     val newItemList = arrayListOf<HomeItem>()
                     var bannerSize = 0
-                    homeBean.itemList.filter { (type) -> type == "banner2" }
-                            .forEach { item -> homeBean.itemList.remove(item) }
+
                     homeBean.itemList.filter { (type) -> type == "video" }
-                            .forEach { bannerSize += 1 }
+                            .forEach { bannerSize += 1
+                                        newItemList.add(it)}
+                    homeBean.itemList.filter { (type) -> type == "textFooter" }
+                            .forEach { newItemList.add(it) }
                     homeBean.itemList.filter { (type) -> type == "videoCollectionWithCover" }
                             .forEach { newItemList.addAll(it.data!!.itemList) }
                     homeBean.itemList.filter { (type) -> type == "videoCollectionWithFollow" }
                             .forEach { newItemList.addAll(it.data!!.itemList) }
-                    homeBean.itemList.addAll(newItemList)
+                    homeBean.itemList=(newItemList)
                     homeView.setFirstData(homeBean,bannerSize)
                 })
 
@@ -44,7 +46,7 @@ class HomePresenter(view: HomeContract.View): HomeContract.Presenter{
                                .forEach { newItemList.addAll(it.data!!.itemList) }
                        homeBean.itemList.filter { (type) -> type == "videoCollectionWithFollow" }
                                .forEach { newItemList.addAll(it.data!!.itemList) }
-                       homeBean.itemList.addAll(newItemList)
+                       homeBean.itemList = newItemList
                        homeView.setMoreData(homeBean.itemList)
                        nextPageUrl = homeBean.nextPageUrl
                    })

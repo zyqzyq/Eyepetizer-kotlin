@@ -35,8 +35,6 @@ class HomeAdapter : RecyclerView.Adapter<HomeAdapter.ViewHolder>() {
 
     override fun onBindViewHolder(holder: ViewHolder?, position: Int) {
         val itemViewType = getItemViewType(position)
-        Log.d(TAG,position.toString())
-        Log.d(TAG,itemList[position].toString())
         when (itemViewType) {
             TYPE_BANNER -> {
                 if (isNewBanner) {
@@ -65,6 +63,10 @@ class HomeAdapter : RecyclerView.Adapter<HomeAdapter.ViewHolder>() {
 
 
     override fun getItemViewType(position: Int): Int {
+        if (itemList[position].type!="video"){
+            Log.d(TAG,"type  "+itemList[position].type+ " "+position)
+        }
+
         if (position == 0 ) return TYPE_BANNER
         return when(itemList[position + bannerItemListCount -1].type ) {
             "video" -> TYPE_STANDARD
@@ -87,6 +89,8 @@ class HomeAdapter : RecyclerView.Adapter<HomeAdapter.ViewHolder>() {
             }
             TYPE_TEXT_FOOTER ->{
                 val headerText = HomeTextFooterItem(parent!!.context)
+                headerText.layoutParams = RecyclerView.LayoutParams(RecyclerView.LayoutParams.MATCH_PARENT,
+                        RecyclerView.LayoutParams.WRAP_CONTENT)
                 return ViewHolder(headerText)
             }
             else -> {
@@ -95,6 +99,7 @@ class HomeAdapter : RecyclerView.Adapter<HomeAdapter.ViewHolder>() {
                         RecyclerView.LayoutParams.WRAP_CONTENT)
                 return ViewHolder(headerText)
             }
+
         }
     }
 
