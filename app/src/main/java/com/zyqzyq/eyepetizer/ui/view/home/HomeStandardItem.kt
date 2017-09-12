@@ -58,6 +58,11 @@ class HomeStandardItem : FrameLayout {
         tagText += timeFromat
         tv_tag.text = tagText
         tv_category.text = data?.category
+        if (item.data?.library == "DAILY"){
+            daily_label.visibility = View.VISIBLE
+        }
+        else
+            daily_label.visibility = View.GONE
     }
 
 
