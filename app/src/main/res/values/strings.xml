@@ -1,4 +1,10 @@
 <resources>
     <string name="app_name">Eyepetizer</string>
+    <string name="splash_text_en">Daily appetizer for your eyes. Bon eyepetit.</string>
+    <string name="splash_text">每日精选视频推荐，让你大开眼界</string>
     <string name="textFooter">更 多 开 眼 编 辑 精 选</string>
+
+    <!--播放页面-->
+    <string name="offline_text">缓存</string>
+    <string name="default_num">0</string>
 </resources>

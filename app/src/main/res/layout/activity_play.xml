@@ -9,7 +9,7 @@
 
 
         <com.shuyu.gsyvideoplayer.video.StandardGSYVideoPlayer
-                android:id="@+id/videoView"
+                android:id="@+id/gsyPlayer"
                 android:layout_width="match_parent"
                 android:layout_height="250dp"/>
 
@@ -17,18 +17,20 @@
                 android:id="@+id/background"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_below="@id/videoView" />
+                android:layout_below="@id/gsyPlayer"
+                tools:ignore="ContentDescription"/>
         <View
                 android:background="#5000"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_below="@id/videoView" />
+                android:layout_below="@id/gsyPlayer" />
 
         <android.support.v7.widget.RecyclerView
                 android:id="@+id/rv_detail"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_below="@id/videoView"
-                android:overScrollMode="never" />
+                android:layout_below="@id/gsyPlayer"
+                android:overScrollMode="never"
+                android:background="@drawable/recommend_bg_unlike"/>
 
     </RelativeLayout>

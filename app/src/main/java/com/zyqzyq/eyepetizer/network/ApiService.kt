@@ -1,7 +1,7 @@
 package com.zyqzyq.eyepetizer.network
 
-import com.zyqzyq.eyepetizer.mvp.Model.bean.HomeBean
-import com.zyqzyq.eyepetizer.mvp.Model.bean.HomeItem
+import com.zyqzyq.eyepetizer.mvp.model.bean.HomeBean
+import com.zyqzyq.eyepetizer.mvp.model.bean.HomeItem
 import io.reactivex.Observable
 import retrofit2.http.GET
 import retrofit2.http.Query
@@ -40,5 +40,5 @@ interface ApiService {
      * 根据item id获取相关视频
      */
     @GET("v4/video/related?")
-    fun getRelatedData(@Query("id") id: Long): Observable<HomeItem>
+    fun getRelatedData(@Query("id") id: Long): Observable<HomeBean>
 }

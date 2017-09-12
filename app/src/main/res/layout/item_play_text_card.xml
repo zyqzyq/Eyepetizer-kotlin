@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:layout_centerVertical="true"
+            android:paddingStart="15dp"
+            android:gravity="center"
+            android:id="@+id/playTextCard"
+            android:text="@string/textFooter"
+            android:textAppearance="?android:textAppearanceMedium"/>
+    <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:src = "@mipmap/ic_action_more_arrow_dark"
+            android:layout_toEndOf="@+id/playTextCard"
+            android:layout_toRightOf="@+id/playTextCard"
+            android:layout_centerVertical="true"
+            tools:ignore="ContentDescription,RtlHardcoded"/>
+
+</RelativeLayout>

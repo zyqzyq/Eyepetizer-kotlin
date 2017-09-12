@@ -1,4 +1,4 @@
-package com.zyqzyq.eyepetizer.ui.view
+package com.zyqzyq.eyepetizer.ui.view.home
 
 import android.animation.Animator
 import android.animation.ValueAnimator
@@ -15,7 +15,6 @@ import android.view.animation.RotateAnimation
 import android.widget.ImageView
 import android.widget.RelativeLayout
 import com.zyqzyq.eyepetizer.R
-import com.zyqzyq.eyepetizer.ui.view.home.HomeBanner
 
 
 class PullRecyclerView : RecyclerView {
@@ -26,7 +25,7 @@ class PullRecyclerView : RecyclerView {
     }
 
 
-    private val pullDistance = 300//下拉高度达到这个的时候，松开手才会刷新
+    val pullDistance = 300//下拉高度达到这个的时候，松开手才会刷新
     var originalFirstItemHeight = 0
     var originalFirstItemWeight = 0
     var downY = -1
@@ -37,14 +36,14 @@ class PullRecyclerView : RecyclerView {
     var isFirstMove = true
     var tempWidth = -1
     var dx = 0
-    private var homeBanner: HomeBanner? = null
+    var homeBanner: HomeBanner? = null
 
     var willRefresh = false//松手后可刷新
 
-    private var mLastMotionY = 0f
-    private var mLastMotionX = 0f
-    private var deltaY = 0f
-    private var deleaX = 0f
+    var mLastMotionY = 0f
+    var mLastMotionX = 0f
+    var deltaY = 0f
+    var deleaX = 0f
     override fun onInterceptTouchEvent(e: MotionEvent?): Boolean {
         var resume = super.onInterceptTouchEvent(e)
         when (e?.action) {
@@ -54,7 +53,7 @@ class PullRecyclerView : RecyclerView {
                 mLastMotionX = e.x
                 downY = e.y.toInt()
                 constDownY = e.y.toInt()
-                resume = false;
+                resume = false
             }
             MotionEvent.ACTION_MOVE -> {
                 // deltaY > 0 是向下运动,< 0是向上运动
@@ -76,7 +75,7 @@ class PullRecyclerView : RecyclerView {
             }
 
         }
-        return resume
+        return super.onInterceptTouchEvent(e)
     }
 
     override fun onTouchEvent(e: MotionEvent?): Boolean {
@@ -108,7 +107,7 @@ class PullRecyclerView : RecyclerView {
                         }
 
 
-                        val fl = e.y - constDownY//fl从1-pullDistance   缩放比例从0-1
+                        var fl = e.y - constDownY//fl从1-pullDistance   缩放比例从0-1
                         if ((fl <= 0)) {
                             return true
                         }
@@ -129,7 +128,7 @@ class PullRecyclerView : RecyclerView {
 
 
                             val ratio = (1f / (0.004 * fl1 + 1)).toFloat()//实现阻尼效果
-                            dY *= ratio
+                            dY = dY * ratio
                             layoutParams.height = (Math.max((layoutParams.height + dY).toInt(), originalFirstItemHeight))
                             tempWidth = (Math.max((tempWidth + dY * originalFirstItemWeight / originalFirstItemHeight).toInt(), originalFirstItemWeight))
                             downY = e.y.toInt()
@@ -170,11 +169,9 @@ class PullRecyclerView : RecyclerView {
 
 
     val loadAnimation by lazy {
-//        刷新时不能循环（暂未解决）
-        val rotateAnimation = RotateAnimation(0f, 100000000f, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f)
+        val rotateAnimation = RotateAnimation(0f, 365f, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f)
         rotateAnimation.duration = 500
-        rotateAnimation.repeatCount = Animation.INFINITE
-        rotateAnimation.repeatMode = Animation.REVERSE
+        rotateAnimation.repeatCount = -1
         rotateAnimation.interpolator = LinearInterpolator()
         rotateAnimation
     }
@@ -195,7 +192,7 @@ class PullRecyclerView : RecyclerView {
             if (loading.scaleX == 1f) {
                 willRefresh = true
             }
-            val dYForView = layoutParams!!.height - originalFirstItemHeight
+            var dYForView = layoutParams!!.height - originalFirstItemHeight
 
 //            layoutParams!!.height, originalFirstItemHeight
             val homeBannerAnimator = ValueAnimator.ofInt(layoutParams.height, originalFirstItemHeight)
@@ -218,8 +215,8 @@ class PullRecyclerView : RecyclerView {
                         adjustViewPager(viewpager, dx)
 
                         if (!willRefresh) {
-                            val distanceY: Float = (layoutParams.height - originalFirstItemHeight) * 1f//算出来的是从view增加的高度到0的值，需要把它映射到手指滑动的高度到0
-                            val fl = distanceY * ((constUpY - constDownY) / dYForView)//映射
+                            var distanceY: Float = (layoutParams.height - originalFirstItemHeight) * 1f//算出来的是从view增加的高度到0的值，需要把它映射到手指滑动的高度到0
+                            var fl = distanceY * ((constUpY - constDownY) / dYForView)//映射
                             setLoadingScale(fl)
 
                         }
@@ -237,7 +234,7 @@ class PullRecyclerView : RecyclerView {
 
                 override fun onAnimationEnd(animation: Animator?) {
                     if (willRefresh) {
-                        onRefreshLister?.onRefresh()
+                        onRefreshListner?.onRefresh()
                         loading.startAnimation(loadAnimation)
                     } else {
                         hideLoading()
@@ -265,7 +262,7 @@ class PullRecyclerView : RecyclerView {
         loading.scaleY = distance
     }
 
-    private fun adjustViewPager(viewpager: ViewPager, dx: Int) {
+    fun adjustViewPager(viewpager: ViewPager, dx: Int) {
         viewpager.translationX = -(dx * 1f / 2)
     }
 
@@ -276,7 +273,7 @@ class PullRecyclerView : RecyclerView {
         imageView
     }
 
-    private val loadingView by lazy {
+    val loadingView by lazy {
         val frameLayout = RelativeLayout(context)
         frameLayout.setBackgroundColor(0xaa000000.toInt())
         frameLayout.gravity = Gravity.CENTER
@@ -286,8 +283,8 @@ class PullRecyclerView : RecyclerView {
     }
 
 
-    private var hasShow: Boolean = false
-    private fun showLoading(viewGroup: ViewGroup) {
+    var hasShow: Boolean = false
+    fun showLoading(viewGroup: ViewGroup) {
         hasShow = true
         viewGroup.addView(loadingView)
     }
@@ -306,10 +303,10 @@ class PullRecyclerView : RecyclerView {
         fun onRefresh()
     }
 
-    var onRefreshLister: OnRefreshListener? = null
+    var onRefreshListner: OnRefreshListener? = null
 
     fun setOnRefreshListener(listener: OnRefreshListener) {
-        this.onRefreshLister = listener
+        this.onRefreshListner = listener
     }
 
 }

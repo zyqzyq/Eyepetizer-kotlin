@@ -1,11 +1,14 @@
 package com.zyqzyq.eyepetizer.ui.view.home
 
+import android.content.Intent
 import android.support.v4.view.PagerAdapter
 import android.util.Log
 import android.view.View
 import android.view.ViewGroup
 import com.zyqzyq.eyepetizer.TAG
-import com.zyqzyq.eyepetizer.mvp.Model.bean.HomeItem
+import com.zyqzyq.eyepetizer.mvp.model.bean.HomeItem
+import com.zyqzyq.eyepetizer.ui.activities.PlayActivity
+import org.jetbrains.anko.startActivity
 
 class BannerAdapter: PagerAdapter(){
     var datas: ArrayList<HomeItem>? = null
@@ -26,7 +29,7 @@ class BannerAdapter: PagerAdapter(){
     }
 
     override fun instantiateItem(container: ViewGroup?, position: Int): Any {
-        if (viewList.size <= position){
+        if (viewList.size <= position+1){
           val bannerItem  =  HomeBannerItem(container?.context,datas!![position])
             viewList.add(bannerItem)
         }
@@ -35,6 +38,11 @@ class BannerAdapter: PagerAdapter(){
         val view = viewList[position]
         container?.addView(view)
         viewList[position].play()
+        view.setOnClickListener { _ ->
+
+        val intent = Intent(view.context, PlayActivity::class.java)
+            intent.putExtra("data", datas!![position])
+            view.context.startActivity(intent)  }
         return view
     }
 }

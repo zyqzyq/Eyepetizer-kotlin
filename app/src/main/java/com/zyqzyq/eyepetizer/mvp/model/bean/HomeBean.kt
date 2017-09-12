@@ -1,4 +1,4 @@
-package com.zyqzyq.eyepetizer.mvp.Model.bean
+package com.zyqzyq.eyepetizer.mvp.model.bean
 
 
 data class HomeBean(var itemList: ArrayList<HomeItem>,val count: Int, val total: Int, val nextPageUrl: String,

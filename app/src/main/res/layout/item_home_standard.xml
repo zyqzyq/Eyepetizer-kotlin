@@ -65,7 +65,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="1px"
                 android:layout_alignParentBottom="true"
-                android:layout_marginLeft="15dp"
                 android:background="@android:color/darker_gray" tools:ignore="RtlHardcoded"/>
     </RelativeLayout>
 </LinearLayout>

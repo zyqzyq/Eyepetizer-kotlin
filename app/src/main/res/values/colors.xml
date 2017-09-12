@@ -4,6 +4,7 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
     <color name="windowBg">#FFFFFF</color>
-    <color name="colotDefaultText">#000000</color>
+    <color name="colorDefaultText">#FFFFFF</color>
     <color name="toolBarBg">#FFFFFF</color>
+
 </resources>

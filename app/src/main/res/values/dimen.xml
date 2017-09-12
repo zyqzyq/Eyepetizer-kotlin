@@ -2,4 +2,6 @@
 <resources>
     <dimen name="tabTextSize">10sp</dimen>
     <dimen name="footerTextSize">12sp</dimen>
+    <dimen name="playInfoPadding">36dp</dimen>
+    <dimen name="smallPlayInfoPadding">12dp</dimen>
 </resources>

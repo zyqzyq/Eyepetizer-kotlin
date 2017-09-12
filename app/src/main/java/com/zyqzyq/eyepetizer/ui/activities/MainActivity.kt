@@ -2,6 +2,7 @@ package com.zyqzyq.eyepetizer.ui.activities
 
 import android.content.Context
 import android.graphics.Color
+import android.graphics.Typeface
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.design.widget.TabLayout
@@ -24,10 +25,13 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        initToolbar()
         initView()
     }
-    private fun initView(){
-
+    private fun initToolbar(){
+        /*toolbar.setBackgroundColor(Color.WHITE)
+        toolbarTitle.text = "hello"
+        toolbarTitle.typeface = Typeface.createFromAsset(this.assets, "fonts/Lobster-1.4.otf")*/
         toolbar.inflateMenu(R.menu.toolbar_item)
         toolbar.setOnMenuItemClickListener { item ->
             when (item.itemId){
@@ -35,6 +39,9 @@ class MainActivity : AppCompatActivity() {
             }
             true
         }
+    }
+    private fun initView(){
+
         bottom_tab_layout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
             override fun onTabSelected(tab: TabLayout.Tab) {
                 onTabItemSelected(tab.position)

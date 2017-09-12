@@ -1,9 +1,9 @@
-package com.zyqzyq.eyepetizer.mvp.Model
+package com.zyqzyq.eyepetizer.mvp.model
 
 import android.util.Log
 import com.zyqzyq.eyepetizer.TAG
 import com.zyqzyq.eyepetizer.io_main
-import com.zyqzyq.eyepetizer.mvp.Model.bean.HomeBean
+import com.zyqzyq.eyepetizer.mvp.model.bean.HomeBean
 import com.zyqzyq.eyepetizer.network.Network
 import io.reactivex.Observable
 

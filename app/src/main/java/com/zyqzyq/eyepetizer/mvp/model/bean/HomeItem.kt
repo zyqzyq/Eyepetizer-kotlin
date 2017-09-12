@@ -1,4 +1,4 @@
-package com.zyqzyq.eyepetizer.mvp.Model.bean
+package com.zyqzyq.eyepetizer.mvp.model.bean
 
 import java.io.Serializable
 

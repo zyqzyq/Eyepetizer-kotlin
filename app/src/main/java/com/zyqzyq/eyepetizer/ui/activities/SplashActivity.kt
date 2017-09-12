@@ -1,5 +1,6 @@
 package com.zyqzyq.eyepetizer.ui.activities
 
+import android.graphics.Typeface
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import com.zyqzyq.eyepetizer.R
@@ -25,6 +26,9 @@ class SplashActivity : AppCompatActivity() {
         setContentView(R.layout.activity_splash)
         Log.d(TAG,splash_image.alpha.toString())
         splash_image.alpha = image_alpha
+        en_tv.typeface = Typeface.createFromAsset(assets,"fonts/Lobster-1.4.otf")
+        cn_tv.alpha = image_alpha
+        en_tv.alpha = image_alpha
         isRunning = true
         // 开启一个线程来让Alpha值递减
         Thread(Runnable {
@@ -44,6 +48,8 @@ class SplashActivity : AppCompatActivity() {
             override fun handleMessage(msg: Message) {
                 super.handleMessage(msg)
                 splash_image.alpha = image_alpha
+                cn_tv.alpha = image_alpha
+                en_tv.alpha = image_alpha
                 // 设置textview显示当前的Alpha值
                 // 刷新视图
                 splash_image.invalidate()

@@ -1,11 +1,13 @@
-package com.zyqzyq.eyepetizer.mvp
+package com.zyqzyq.eyepetizer.mvp.presenter
 
 import android.util.Log
-import com.zyqzyq.eyepetizer.mvp.Model.HomeModel
-import com.zyqzyq.eyepetizer.mvp.Model.bean.HomeItem
-import com.zyqzyq.eyepetizer.TAG
 
-class HomePresenter(view: HomeContract.View): HomeContract.Presenter{
+import com.zyqzyq.eyepetizer.mvp.model.bean.HomeItem
+import com.zyqzyq.eyepetizer.TAG
+import com.zyqzyq.eyepetizer.mvp.contract.HomeContract
+import com.zyqzyq.eyepetizer.mvp.model.HomeModel
+
+class HomePresenter(view: HomeContract.View): HomeContract.Presenter {
     private val homeView: HomeContract.View = view
     private val homeModel: HomeModel by lazy {  HomeModel() }
     var nextPageUrl: String? = null
@@ -38,7 +40,14 @@ class HomePresenter(view: HomeContract.View): HomeContract.Presenter{
     override fun requestMoreData() {
        nextPageUrl?.let {
            Log.d(TAG,nextPageUrl)
-           homeModel.loadMoreData(it)
+           Log.d(TAG,"最后一个"+nextPageUrl!![it.length-1].toString())
+           if (it[it.length-1].toString() == "5"){
+               Log.d(TAG,"555555555555555555")
+               nextPageUrl= nextPageUrl?.substring(0,it.length-2)+6
+               Log.d(TAG,nextPageUrl)
+           }
+
+           homeModel.loadMoreData(nextPageUrl!!)
                    .subscribe({  homeBean ->
                        //过滤掉banner
                        val newItemList = arrayListOf<HomeItem>()
@@ -46,7 +55,7 @@ class HomePresenter(view: HomeContract.View): HomeContract.Presenter{
                                .forEach { newItemList.addAll(it.data!!.itemList) }
                        homeBean.itemList.filter { (type) -> type == "videoCollectionWithFollow" }
                                .forEach { newItemList.addAll(it.data!!.itemList) }
-                       homeBean.itemList = newItemList
+                       homeBean.itemList.addAll(newItemList)
                        homeView.setMoreData(homeBean.itemList)
                        nextPageUrl = homeBean.nextPageUrl
                    })

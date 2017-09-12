@@ -1,4 +1,4 @@
-package com.zyqzyq.eyepetizer.ui.view
+package com.zyqzyq.eyepetizer.ui.view.home
 
 import android.content.Context
 import android.util.AttributeSet

@@ -1,4 +1,4 @@
-package com.zyqzyq.eyepetizer.ui.view
+package com.zyqzyq.eyepetizer.ui.view.home
 
 import android.content.Context
 import android.graphics.Bitmap
@@ -10,7 +10,7 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.request.target.BitmapImageViewTarget
 import com.zyqzyq.eyepetizer.R
 import com.zyqzyq.eyepetizer.durationFormat
-import com.zyqzyq.eyepetizer.mvp.Model.bean.HomeItem
+import com.zyqzyq.eyepetizer.mvp.model.bean.HomeItem
 import kotlinx.android.synthetic.main.item_home_standard.view.*
 /*adpater TYPE_VIDEO*/
 class HomeStandardItem : FrameLayout {

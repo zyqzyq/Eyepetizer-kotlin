@@ -1,7 +1,7 @@
-package com.zyqzyq.eyepetizer.mvp
+package com.zyqzyq.eyepetizer.mvp.contract
 
-import com.zyqzyq.eyepetizer.mvp.Model.bean.HomeBean
-import com.zyqzyq.eyepetizer.mvp.Model.bean.HomeItem
+import com.zyqzyq.eyepetizer.mvp.model.bean.HomeBean
+import com.zyqzyq.eyepetizer.mvp.model.bean.HomeItem
 import com.zyqzyq.eyepetizer.mvp.base.BaseView
 /**
  * MVP接口

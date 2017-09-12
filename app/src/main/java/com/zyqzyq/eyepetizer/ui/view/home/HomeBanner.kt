@@ -1,8 +1,6 @@
 package com.zyqzyq.eyepetizer.ui.view.home
 
 import android.content.Context
-import android.graphics.Bitmap
-import android.graphics.Canvas
 import android.graphics.Color
 import android.os.Handler
 import android.support.v4.view.ViewPager
@@ -12,7 +10,7 @@ import android.widget.FrameLayout
 import android.widget.ImageView
 import android.widget.LinearLayout
 import com.zyqzyq.eyepetizer.R
-import com.zyqzyq.eyepetizer.mvp.Model.bean.HomeItem
+import com.zyqzyq.eyepetizer.mvp.model.bean.HomeItem
 import com.zyqzyq.eyepetizer.util.DisplayManager
 import com.zyqzyq.eyepetizer.util.XTextView
 
@@ -135,7 +133,6 @@ class HomeBanner: FrameLayout{
             layoutParams.leftMargin = DisplayManager.getRealWidth(10)!!
             layoutParams.rightMargin = DisplayManager.getRealWidth(10)!!
             indicator.layoutParams = layoutParams
-
 
             indicators.addView(indicator)
         }

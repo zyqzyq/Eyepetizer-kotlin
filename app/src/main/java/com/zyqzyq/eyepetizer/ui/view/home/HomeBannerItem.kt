@@ -11,7 +11,7 @@ import com.shuyu.gsyvideoplayer.video.base.GSYVideoPlayer
 import com.zyqzyq.eyepetizer.EmptyControlVideo
 import com.zyqzyq.eyepetizer.R
 import com.zyqzyq.eyepetizer.TAG
-import com.zyqzyq.eyepetizer.mvp.Model.bean.HomeItem
+import com.zyqzyq.eyepetizer.mvp.model.bean.HomeItem
 import kotlinx.android.synthetic.main.item_home_banner.view.*
 
 /*主要是适配banner的图片和播放器*/

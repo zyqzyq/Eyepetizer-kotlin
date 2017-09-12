@@ -1,14 +1,16 @@
 package com.zyqzyq.eyepetizer.ui.adapters
 
+import android.content.Intent
 import android.support.v7.widget.RecyclerView
 import android.util.Log
 import android.view.View
 import android.view.ViewGroup
-import com.zyqzyq.eyepetizer.mvp.Model.bean.HomeItem
-import com.zyqzyq.eyepetizer.ui.view.HomeStandardItem
-import com.zyqzyq.eyepetizer.ui.view.HomeTextHeaderItem
+import com.zyqzyq.eyepetizer.mvp.model.bean.HomeItem
+import com.zyqzyq.eyepetizer.ui.view.home.HomeStandardItem
+import com.zyqzyq.eyepetizer.ui.view.home.HomeTextHeaderItem
 import com.zyqzyq.eyepetizer.TAG
-import com.zyqzyq.eyepetizer.ui.view.HomeTextFooterItem
+import com.zyqzyq.eyepetizer.ui.activities.PlayActivity
+import com.zyqzyq.eyepetizer.ui.view.home.HomeTextFooterItem
 import com.zyqzyq.eyepetizer.ui.view.home.HomeBanner
 
 /**
@@ -42,7 +44,13 @@ class HomeAdapter : RecyclerView.Adapter<HomeAdapter.ViewHolder>() {
                     (holder?.itemView as HomeBanner).setData(itemList.take(bannerItemListCount).toCollection(ArrayList()))
                 }
             }
-            TYPE_STANDARD -> (holder?.itemView as HomeStandardItem).setData(itemList[position+ bannerItemListCount -1])
+            TYPE_STANDARD -> (holder?.itemView as HomeStandardItem).let {
+                it.setData(itemList[position+ bannerItemListCount -1])
+                it.setOnClickListener {
+                    val intent = Intent(it.context, PlayActivity::class.java)
+                    intent.putExtra("data", itemList[position+ bannerItemListCount -1])
+                    it.context.startActivity(intent)  }
+            }
             TYPE_TEXT_HEADER -> (holder?.itemView as HomeTextHeaderItem).setHeaderText(itemList[position+ bannerItemListCount -1].data?.text)
 //            TYPE_TEXT_FOOTER -> (holder?.itemView as HomeTextFooterItem).setFooterText(itemList[position+ bannerItemListCount -1].data?.text)
         }
