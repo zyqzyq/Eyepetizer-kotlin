@@ -40,13 +40,13 @@ class HomeFragment: Fragment(), HomeContract.View{
 
     override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        initToolbar()
+//        initToolbar()
         initView()
         presenter = HomePresenter(this)
         presenter.requestFirstData()
     }
     private fun initToolbar(){
-        activity.toolbar.setBackgroundColor(Color.WHITE)
+        activity.toolbar.setBackgroundColor(Color.YELLOW)
         activity.toolbar.background.alpha = 0
         activity.toolbarTitle.text = ""
 

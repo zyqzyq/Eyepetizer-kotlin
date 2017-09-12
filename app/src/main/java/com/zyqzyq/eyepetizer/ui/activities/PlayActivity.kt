@@ -38,7 +38,7 @@ class PlayActivity : AppCompatActivity() ,PlayContract.View{
             if (this.resources.configuration.orientation == Configuration.ORIENTATION_PORTRAIT) {
                 requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE
             }
-            gsyPlayer.startWindowFullscreen(this,true,true)
+//            gsyPlayer.startWindowFullscreen(this,true,true)
         }
         gsyPlayer.backButton.setOnClickListener { onBackPressed() }
         gsyPlayer.backButton.setImageResource(R.mipmap.ic_action_detail_back)
@@ -51,16 +51,25 @@ class PlayActivity : AppCompatActivity() ,PlayContract.View{
 
     override fun onConfigurationChanged(newConfig: Configuration?) {
         super.onConfigurationChanged(newConfig)
-        gsyPlayer?.fullWindowPlayer?.fullscreenButton?.setOnClickListener {
-            GSYVideoPlayer.backFromWindowFull(this)
-            if (this.resources.configuration.orientation != Configuration.ORIENTATION_PORTRAIT) {
-                requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
+
+        if (newConfig?.orientation==Configuration.ORIENTATION_LANDSCAPE){
+            gsyPlayer.startWindowFullscreen(this,true,true)
+            gsyPlayer?.fullWindowPlayer?.fullscreenButton?.setOnClickListener {
+//                this.toast("fullscreen")
+                if (this.resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE) {
+                    requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
+                }
+            }
+            gsyPlayer?.fullWindowPlayer?.backButton?.setOnClickListener {
+                if (this.resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE) {
+                    requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
+                }
+//                GSYVideoPlayer.backFromWindowFull(this)
             }
         }
-        if (newConfig?.orientation==Configuration.ORIENTATION_LANDSCAPE)
-            gsyPlayer.startWindowFullscreen(this,true,true)
         else
-            gsyPlayer.onBackFullscreen()
+            GSYVideoPlayer.backFromWindowFull(this)
+//            gsyPlayer.onBackFullscreen()
     }
 
     private fun loadData(){

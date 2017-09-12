@@ -17,11 +17,12 @@ class DiscoverFragment: Fragment(){
 
     override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        initToolbar()
+//        initToolbar()
     }
     private fun initToolbar(){
-        activity.toolbar.setBackgroundColor(Color.BLUE)
+//        activity.toolbar.setBackgroundColor(Color.BLUE)
 //        activity.toolbar.alpha=1f
+        activity.toolbar.menu.getItem(0).setIcon(R.mipmap.ic_action_search)
         activity.toolbar.background.alpha = 255
         activity.toolbarTitle.text = "Discover"
         activity.toolbarTitle.setTextColor(Color.BLACK)

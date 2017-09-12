@@ -28,16 +28,39 @@ class MainActivity : AppCompatActivity() {
         initToolbar()
         initView()
     }
-    private fun initToolbar(){
-        /*toolbar.setBackgroundColor(Color.WHITE)
-        toolbarTitle.text = "hello"
-        toolbarTitle.typeface = Typeface.createFromAsset(this.assets, "fonts/Lobster-1.4.otf")*/
+    private fun initToolbar() {
         toolbar.inflateMenu(R.menu.toolbar_item)
+        toolbar.setBackgroundColor(Color.WHITE)
+        toolbarTitle.text = "welcome"
+        toolbarTitle.setTextColor(Color.BLACK)
+        toolbarTitle.typeface = Typeface.createFromAsset(this.assets, "fonts/Lobster-1.4.otf")
         toolbar.setOnMenuItemClickListener { item ->
-            when (item.itemId){
+            when (item.itemId) {
                 R.id.app_bar_search -> toast("searching")
             }
             true
+        }
+    }
+    private fun onToolbarSelected(position: Int){
+        when(position){
+            0 ->{toolbar.menu.getItem(0).setIcon(R.mipmap.ic_action_search_white)
+                toolbar.background.alpha = 0
+                    toolbarTitle.text = ""
+                }
+            1 ->{ toolbar.menu.getItem(0).setIcon(R.mipmap.ic_action_search)
+                    toolbar.background.alpha = 255
+                    toolbarTitle.text = "Discover"
+                }
+            2 ->{toolbar.menu.getItem(0).setIcon(R.mipmap.ic_action_search)
+                toolbar.background.alpha = 255
+                toolbarTitle.text = "Follow"
+
+            }
+            3 ->{
+                toolbar.menu.getItem(0).setIcon(R.mipmap.ic_menu_more)
+                toolbar.background.alpha = 0
+                toolbarTitle.text = ""
+            }
         }
     }
     private fun initView(){
@@ -84,5 +107,6 @@ class MainActivity : AppCompatActivity() {
     fun onTabItemSelected(position: Int){
         val transaction = fragmentManager.beginTransaction()
         transaction.replace(R.id.main_container, MainData.mainFragmentList[position]).commit()
+        onToolbarSelected(position)
     }
 }
