@@ -15,7 +15,7 @@ interface HomeContract{
     }
     interface Presenter{
         /**
-         * 刷新数据、第一次请求你数据
+         * 刷新数据、第一次请求数据
          */
         fun requestFirstData()
 

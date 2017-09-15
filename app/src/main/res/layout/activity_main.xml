@@ -29,6 +29,7 @@
             android:background="@color/windowBg"
             app:tabIndicatorHeight="0dp"
             app:tabSelectedTextColor="@android:color/black"
-            app:tabTextColor="@android:color/darker_gray">
+            app:tabTextColor="@android:color/darker_gray"
+            app:tabGravity="fill">
     </android.support.design.widget.TabLayout>
 </RelativeLayout>

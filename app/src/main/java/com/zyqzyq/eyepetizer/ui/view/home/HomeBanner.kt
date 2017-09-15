@@ -32,7 +32,6 @@ class HomeBanner: FrameLayout{
             this.sendEmptyMessageDelayed(msgWhat, 5000)//2S后在发送一条消息，由于在handleMessage()方法中，造成死循环。
 //            Log.d(TAG, "handleMessage")
         }
-
     }
     constructor(context: Context?) : this(context, null)
     constructor(context: Context?, attrs: AttributeSet?) : this(context, attrs, 0)

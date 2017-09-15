@@ -4,11 +4,13 @@ import android.content.Context
 import android.graphics.Bitmap
 import android.support.v4.graphics.drawable.RoundedBitmapDrawableFactory
 import android.util.AttributeSet
+import android.util.Log
 import android.view.View
 import android.widget.FrameLayout
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.target.BitmapImageViewTarget
 import com.zyqzyq.eyepetizer.R
+import com.zyqzyq.eyepetizer.TAG
 import com.zyqzyq.eyepetizer.durationFormat
 import com.zyqzyq.eyepetizer.mvp.model.bean.HomeItem
 import kotlinx.android.synthetic.main.item_home_standard.view.*
@@ -54,8 +56,8 @@ class HomeStandardItem : FrameLayout {
         tv_title.text = item.data?.title
         var tagText = ""
         data?.tags?.take(4)?.forEach { tagText += (it.name + " / ") }
-        val timeFromat = durationFormat(data?.duration)
-        tagText += timeFromat
+        val timeFormat = durationFormat(data?.duration)
+        tagText += timeFormat
         tv_tag.text = tagText
         tv_category.text = data?.category
         if (item.data?.library == "DAILY"){

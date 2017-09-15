@@ -9,6 +9,7 @@ data class HomeItem(val type: String, val data: Data?, val tag: String) : Serial
                     val actionUrl: String,
                     val provider: Provider,
                     val category: String,
+                    val image: String,
                     val parentReply:ParentReply,
                     val author: Author,
                     val cover: Cover,
@@ -65,7 +66,7 @@ data class HomeItem(val type: String, val data: Data?, val tag: String) : Serial
         data class ParentReply(val user: User, val message: String) : Serializable
         data class Url(val size: Long) : Serializable
 
-        data class Header(val id: Int,val title: Any,val font: String,val cover: String,val label: Label,
+        data class Header(val id: Int,val title: String,val font: String,val cover: String,val label: Label,
                           val actionUrl: String , val labelList: ArrayList<Label>): Serializable{
             data class Label(val text: String,val card: String,val detial: Any,val actionUrl: Any)
         }

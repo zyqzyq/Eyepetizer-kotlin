@@ -21,8 +21,10 @@ class HomeTextHeaderItem : FrameLayout {
     }
 
     private fun init() {
+        textView.text = "hello"
         textView.gravity = Gravity.CENTER
         textView.textSize = 20f
+        textView.setPadding(0,20,0,20)
 //        textView.typeface = Typeface.createFromAsset(context?.assets, "fonts/Lobster-1.4.otf")
         textView.paint.isFakeBoldText = true
         textView.setTextColor(Color.BLACK)

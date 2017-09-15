@@ -29,9 +29,10 @@ class MainActivity : AppCompatActivity() {
         initView()
     }
     private fun initToolbar() {
+        toolbarTitle.text = "open eyes"
         toolbar.inflateMenu(R.menu.toolbar_item)
         toolbar.setBackgroundColor(Color.WHITE)
-        toolbarTitle.text = "welcome"
+        toolbar.setTitleTextColor(Color.BLACK)
         toolbarTitle.setTextColor(Color.BLACK)
         toolbarTitle.typeface = Typeface.createFromAsset(this.assets, "fonts/Lobster-1.4.otf")
         toolbar.setOnMenuItemClickListener { item ->
@@ -46,20 +47,23 @@ class MainActivity : AppCompatActivity() {
             0 ->{toolbar.menu.getItem(0).setIcon(R.mipmap.ic_action_search_white)
                 toolbar.background.alpha = 0
                     toolbarTitle.text = ""
+                    toolbar.title = ""
                 }
             1 ->{ toolbar.menu.getItem(0).setIcon(R.mipmap.ic_action_search)
                     toolbar.background.alpha = 255
                     toolbarTitle.text = "Discover"
+                    toolbar.title = "全部分类"
                 }
             2 ->{toolbar.menu.getItem(0).setIcon(R.mipmap.ic_action_search)
                 toolbar.background.alpha = 255
                 toolbarTitle.text = "Follow"
-
+                toolbar.title = "全部作者"
             }
             3 ->{
                 toolbar.menu.getItem(0).setIcon(R.mipmap.ic_menu_more)
                 toolbar.background.alpha = 0
                 toolbarTitle.text = ""
+                toolbar.title = ""
             }
         }
     }
@@ -105,7 +109,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun onTabItemSelected(position: Int){
-        val transaction = fragmentManager.beginTransaction()
+//        val transaction = fragmentManager.beginTransaction()
+        val transaction = supportFragmentManager.beginTransaction()//v4 使用supportFragmentManager
         transaction.replace(R.id.main_container, MainData.mainFragmentList[position]).commit()
         onToolbarSelected(position)
     }

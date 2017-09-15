@@ -1,9 +1,10 @@
 package com.zyqzyq.eyepetizer.ui.fragments
 
-import android.app.Fragment
+
 import android.graphics.Color
 import android.graphics.Typeface
 import android.os.Bundle
+import android.support.v4.app.Fragment
 import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
@@ -41,15 +42,14 @@ class HomeFragment: Fragment(), HomeContract.View{
     override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 //        initToolbar()
+
+    }
+
+    override fun onResume() {
+        super.onResume()
         initView()
         presenter = HomePresenter(this)
         presenter.requestFirstData()
-    }
-    private fun initToolbar(){
-        activity.toolbar.setBackgroundColor(Color.YELLOW)
-        activity.toolbar.background.alpha = 0
-        activity.toolbarTitle.text = ""
-
     }
     private fun initView(){
 
@@ -58,7 +58,7 @@ class HomeFragment: Fragment(), HomeContract.View{
         homeRecyclerView.setOnRefreshListener(object : PullRecyclerView.OnRefreshListener{
             override fun onRefresh() {
                 Log.d(TAG,"刷新")
-                toast("刷新")
+//                toast("刷新")
                 presenter.requestFirstData()
             }
         })
@@ -103,7 +103,7 @@ class HomeFragment: Fragment(), HomeContract.View{
     }
 
     override fun onError() {
-        toast("网络错误")
+//        toast("网络错误")
         homeRecyclerView.hideLoading()
     }
 

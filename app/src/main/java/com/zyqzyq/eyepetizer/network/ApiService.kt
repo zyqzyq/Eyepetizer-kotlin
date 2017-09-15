@@ -1,5 +1,6 @@
 package com.zyqzyq.eyepetizer.network
 
+import com.zyqzyq.eyepetizer.mvp.model.bean.DiscoveryTabInfo
 import com.zyqzyq.eyepetizer.mvp.model.bean.HomeBean
 import com.zyqzyq.eyepetizer.mvp.model.bean.HomeItem
 import io.reactivex.Observable
@@ -24,21 +25,26 @@ interface ApiService {
 
 
     /**
-     * issue里面包了itemlist和nextpageurl
-     */
-    @GET
-    fun getIssue(@Url url: String): Observable<HomeItem>
-
-
-    /**
-     * 获取回复
-     */
-    @GET("v2/replies/video?")
-    fun getReply(@Query("videoId") videoId: Long): Observable<HomeItem>
-
-    /**
      * 根据item id获取相关视频
      */
     @GET("v4/video/related?")
     fun getRelatedData(@Query("id") id: Long): Observable<HomeBean>
+
+    /**
+     * 获取发现
+     */
+    @GET("v4/discovery")
+    fun getDiscovery(): Observable<DiscoveryTabInfo>
+
+    /**
+     * 获取发现下分类的数据
+     */
+    @GET
+    fun getDiscoveryItemData(@Url url: String): Observable<HomeBean>
+
+    /**
+     * 获取发现下分类的更多数据
+     */
+    @GET
+    fun getMoreDiscoveryItemData(@Url url: String): Observable<HomeBean>
 }

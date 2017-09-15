@@ -1,6 +1,7 @@
 package com.zyqzyq.eyepetizer.ui.fragments
 
-import android.app.Fragment
+import android.support.v4.app.Fragment
+
 
 class MineFragment: Fragment(){
 

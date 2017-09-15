@@ -11,6 +11,7 @@
             android:paddingStart="15dp"
             android:gravity="center"
             android:id="@+id/playTextCard"
+            android:textColor="@android:color/white"
             android:text="@string/textFooter"
             android:textAppearance="?android:textAppearanceMedium"/>
     <ImageView

@@ -5,7 +5,6 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-
     <com.zyqzyq.eyepetizer.ui.view.home.PullRecyclerView
             android:id="@+id/homeRecyclerView"
             android:layout_width="match_parent"

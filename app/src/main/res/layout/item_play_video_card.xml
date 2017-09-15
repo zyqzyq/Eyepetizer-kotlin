@@ -28,13 +28,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="5dp"
-                android:layout_marginTop="5dp" />
+                android:layout_marginTop="5dp"
+                android:textColor="@android:color/white"/>
 
         <TextView
                 android:id="@+id/tv_tag"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp" />
+                android:layout_marginBottom="10dp"
+                android:textColor="@android:color/white"/>
     </LinearLayout>
 
     <View
