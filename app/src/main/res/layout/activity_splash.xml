@@ -16,16 +16,17 @@
             android:layout_height="match_parent"
             android:src="@drawable/splash_background"
             android:scaleType="fitXY"
-            android:id="@+id/splash_image"
+            android:id="@+id/splashImage"
             android:alpha="0"
             tools:ignore="ContentDescription"/>
     <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:src="@mipmap/ic_account_login_header" tools:ignore="ContentDescription"/>
+            android:src="@mipmap/ic_account_login_header"
+            tools:ignore="ContentDescription"/>
     <TextView
-            android:id="@+id/cn_tv"
+            android:id="@+id/cnTv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
@@ -35,15 +36,15 @@
             android:layout_alignParentBottom="true"
             android:layout_marginBottom="100dp"/>
     <TextView
-            android:id="@+id/en_tv"
+            android:id="@+id/enTv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:textColor="@android:color/white"
             android:text="@string/splash_text_en"
             android:textAppearance="?android:textAppearanceMedium"
-            android:layout_marginBottom="36dp"
-            android:layout_above="@id/cn_tv"/>
+            android:layout_marginBottom="18dp"
+            android:layout_above="@id/cnTv"/>
 
 
 

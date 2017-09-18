@@ -1,38 +1,33 @@
 package com.zyqzyq.eyepetizer.ui.view.home
 
 import android.content.Context
-import android.graphics.Color
 import android.graphics.Typeface
 import android.util.AttributeSet
-import android.view.Gravity
+import android.view.View
 import android.widget.FrameLayout
-import android.widget.TextView
+import com.zyqzyq.eyepetizer.R
+import kotlinx.android.synthetic.main.item_standard_text.view.*
 
 class HomeTextHeaderItem : FrameLayout {
 
-    private val textView by lazy {
-        TextView(context)
-    }
 
     constructor(context: Context?) : this(context, null)
     constructor(context: Context?, attrs: AttributeSet?) : this(context, attrs, 0)
     constructor(context: Context?, attrs: AttributeSet?, defStyleAttr: Int) : super(context, attrs, defStyleAttr) {
         init()
+        initView()
     }
 
     private fun init() {
-        textView.text = "hello"
-        textView.gravity = Gravity.CENTER
-        textView.textSize = 20f
-        textView.setPadding(0,20,0,20)
-//        textView.typeface = Typeface.createFromAsset(context?.assets, "fonts/Lobster-1.4.otf")
-        textView.paint.isFakeBoldText = true
-        textView.setTextColor(Color.BLACK)
-        addView(textView)
+        View.inflate(context, R.layout.item_standard_text,this)
     }
 
+    private fun initView(){
+        standardText.text = "hello"
+        standardText.typeface = Typeface.createFromAsset(context?.assets, "fonts/Lobster-1.4.otf")
+    }
 
     fun setHeaderText(text: String?) {
-        textView.text = text
+        standardText.text = text
     }
 }

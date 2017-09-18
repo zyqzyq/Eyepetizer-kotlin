@@ -6,24 +6,28 @@
         android:layout_height="match_parent">
     <TextView
             android:layout_width="wrap_content"
-            android:layout_height="60dp"
+            android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:gravity="center"
-            android:id="@+id/textFooter"
-            android:text="@string/textFooter"
-            android:textColor="@android:color/black"
-            android:textSize="@dimen/footerTextSize"/>
+            android:padding="20dp"
+            android:id="@+id/standardText"
+            android:textAppearance="?android:textAppearanceMedium"/>
     <ImageView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:src = "@mipmap/ic_action_more_arrow_dark"
-            android:layout_toEndOf="@+id/textFooter"
-            android:layout_toRightOf="@+id/textFooter"
-            android:layout_centerVertical="true" tools:ignore="ContentDescription,RtlHardcoded"/>
+            android:layout_toEndOf="@+id/standardText"
+            android:layout_toRightOf="@+id/standardText"
+            android:layout_centerVertical="true"
+            android:id="@+id/standardImage"
+            android:visibility="gone"
+            tools:ignore="ContentDescription,RtlHardcoded"/>
     <View
             android:layout_width="match_parent"
             android:layout_height="1px"
+            android:alpha=".6"
+            android:id="@+id/standardLine"
             android:layout_alignParentBottom="true"
-            android:layout_marginLeft="15dp"
-            android:background="@android:color/darker_gray" tools:ignore="RtlHardcoded"/>
+            android:background="@android:color/darker_gray"
+            tools:ignore="RtlHardcoded"/>
 </RelativeLayout>

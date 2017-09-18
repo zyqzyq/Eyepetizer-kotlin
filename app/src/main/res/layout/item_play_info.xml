@@ -12,7 +12,9 @@
             android:textColor="@android:color/white"
             android:text="送给还在坚持的你：打败心中的野兽"
             tools:ignore="HardcodedText"
-            android:paddingTop="@dimen/smallPlayInfoPadding"/>
+            android:paddingTop="@dimen/smallPlayInfoPadding"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"/>
 
     <TextView
             android:layout_width="match_parent"
@@ -21,7 +23,9 @@
             android:textColor="@android:color/darker_gray"
             android:textAppearance="?android:textAppearanceSmall"
             android:text="生活 / 60 /" tools:ignore="HardcodedText"
-            android:paddingTop="@dimen/smallPlayInfoPadding"/>
+            android:paddingTop="@dimen/smallPlayInfoPadding"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"/>
 
     <TextView
             android:layout_width="match_parent"
@@ -31,12 +35,16 @@
             android:textAppearance="?android:textAppearanceSmall"
             android:text="恐惧是每个人心里都会养着的一只野兽，请务必驯服它的张牙舞爪。在坚持梦想的路上，愿你无畏前行。From Camille Marotte"
             tools:ignore="HardcodedText"
-            android:paddingTop="@dimen/smallPlayInfoPadding"/>
+            android:paddingTop="@dimen/smallPlayInfoPadding"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"/>
 
     <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingTop="@dimen/smallPlayInfoPadding">
+            android:paddingTop="@dimen/smallPlayInfoPadding"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp">
             <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -49,6 +57,8 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:text="@string/default_num"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="0dp"
                     android:textColor="@android:color/white"
                     android:id="@+id/playInfoFavoritesNum"
                     android:layout_weight="1"/>
@@ -64,6 +74,8 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:text="@string/default_num"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="0dp"
                     android:textColor="@android:color/white"
                     android:id="@+id/playInfoShareNum"
                     android:layout_weight="1"/>
@@ -79,6 +91,8 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:text="@string/default_num"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="0dp"
                     android:textColor="@android:color/white"
                     android:id="@+id/playInfoReplyNum"
                     android:layout_weight="1"/>
@@ -94,12 +108,15 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:text="@string/offline_text"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="0dp"
                     android:textColor="@android:color/white"
                     android:layout_weight="1"/>
     </LinearLayout>
     <View
             android:layout_width="match_parent"
-            android:layout_height="1px"
+            android:layout_height="1dp"
+            android:layout_marginTop="10dp"
             android:background="@android:color/darker_gray"
             tools:ignore="RtlHardcoded"/>
 </LinearLayout>

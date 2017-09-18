@@ -31,13 +31,13 @@ class SquareCardItem : FrameLayout {
         //设置布局管理器
         val linearLayoutManager = LinearLayoutManager(context)
         linearLayoutManager.orientation = LinearLayoutManager.HORIZONTAL
-        hot_square_rv.layoutManager = linearLayoutManager
-        hot_square_rv.adapter = squareCardAdapter
+        hotSquareRv.layoutManager = linearLayoutManager
+        hotSquareRv.adapter = squareCardAdapter
     }
     fun setData(data: HomeItem?) {
-        hot_square_text.text = data?.data?.header?.title ?: "热门排行"
-        hot_square_text.paint.isFakeBoldText = true
-        hot_square_text.gravity = Gravity.CENTER
+        hotSquartTv.text = data?.data?.header?.title ?: "热门排行"
+        hotSquartTv.paint.isFakeBoldText = true
+        hotSquartTv.gravity = Gravity.CENTER
         squareCardAdapter.setItemList(data?.data?.itemList!!)
         squareCardAdapter.notifyDataSetChanged()
     }

@@ -42,8 +42,8 @@ class PlayActivity : AppCompatActivity() ,PlayContract.View{
         }
         gsyPlayer.backButton.setOnClickListener { onBackPressed() }
         gsyPlayer.backButton.setImageResource(R.mipmap.ic_action_detail_back)
-        rv_detail.layoutManager = LinearLayoutManager(this)
-        rv_detail.adapter = adapter
+        playRv.layoutManager = LinearLayoutManager(this)
+        playRv.adapter = adapter
         val mediaPlayer = IjkMediaPlayer()
         mediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC)
     }

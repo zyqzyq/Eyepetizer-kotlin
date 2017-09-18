@@ -38,14 +38,14 @@ class HomeStandardItem : FrameLayout {
             avatar = data?.provider?.icon
         }
 
-        Glide.with(context).load(homepage).centerCrop().into(iv_cover)
+        Glide.with(context).load(homepage).centerCrop().into(ivCover)
 
-        val ivAvatarCircle = object : BitmapImageViewTarget(iv_avatar) {
+        val ivAvatarCircle = object : BitmapImageViewTarget(ivAvatar) {
             override fun setResource(resource: Bitmap?) {
                 super.setResource(resource)
                 val circularBitmapDrawable = RoundedBitmapDrawableFactory.create(resources, resource)
                 circularBitmapDrawable.isCircular=true
-                iv_avatar.setImageDrawable(circularBitmapDrawable)
+                ivAvatar.setImageDrawable(circularBitmapDrawable)
             }
         }
         if (avatar == null || "" == avatar) {
@@ -53,18 +53,18 @@ class HomeStandardItem : FrameLayout {
         } else {
             Glide.with(context).load(avatar).asBitmap().centerCrop().into(ivAvatarCircle)
         }
-        tv_title.text = item.data?.title
+        tvTitle.text = item.data?.title
         var tagText = ""
         data?.tags?.take(4)?.forEach { tagText += (it.name + " / ") }
         val timeFormat = durationFormat(data?.duration)
         tagText += timeFormat
-        tv_tag.text = tagText
-        tv_category.text = data?.category
+        tvTag.text = tagText
+        tvCategory.text = data?.category
         if (item.data?.library == "DAILY"){
-            daily_label.visibility = View.VISIBLE
+            dailyLabel.visibility = View.VISIBLE
         }
         else
-            daily_label.visibility = View.GONE
+            dailyLabel.visibility = View.GONE
     }
 
 

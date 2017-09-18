@@ -97,7 +97,7 @@ class XTextView : FrameLayout {
                             .io_main()
                             .subscribe({ i ->
                                 content = content + it[i.toInt()]
-                                realTextView?.setText(content)
+                                realTextView?.text = content
                             }, { e -> e.printStackTrace() }, { isRun = false }
                             )
                 }

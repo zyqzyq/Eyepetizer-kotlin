@@ -69,20 +69,20 @@ class MainActivity : AppCompatActivity() {
     }
     private fun initView(){
 
-        bottom_tab_layout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
+        mainTabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
             override fun onTabSelected(tab: TabLayout.Tab) {
                 onTabItemSelected(tab.position)
                 // Tab 选中之后，改变各个Tab的状态
-                for (i in 0 until bottom_tab_layout.tabCount ) {
-                    val view = bottom_tab_layout.getTabAt(i)!!.customView
+                for (i in 0 until mainTabLayout.tabCount ) {
+                    val view = mainTabLayout.getTabAt(i)!!.customView
 
                     if (i == tab.position) { // 选中状态
-                        view?.tab_content_image?.setImageResource(MainData.mainTabResPressed[i])
-                        view?.tab_content_text?.setTextColor(Color.BLACK)
+                        view?.tabContentImage?.setImageResource(MainData.mainTabResPressed[i])
+                        view?.tabContentText?.setTextColor(Color.BLACK)
 
                     } else {// 未选中状态
-                        view?.tab_content_image?.setImageResource(MainData.mainTabRes[i])
-                        view?.tab_content_text?.setTextColor(Color.DKGRAY)
+                        view?.tabContentImage?.setImageResource(MainData.mainTabRes[i])
+                        view?.tabContentText?.setTextColor(Color.DKGRAY)
                     }
                 }
             }
@@ -97,21 +97,27 @@ class MainActivity : AppCompatActivity() {
         })
 
         for(i in 0..3) {
-            bottom_tab_layout.addTab(bottom_tab_layout.newTab().setCustomView(getTabView(this, i)))
+            mainTabLayout.addTab(mainTabLayout.newTab().setCustomView(getTabView(this, i)))
         }
     }
 
     private fun getTabView(context: Context,position: Int): View{
         val view = LayoutInflater.from(context).inflate(R.layout.tabview, null)
-        view.tab_content_image.setImageResource(MainData.mainTabRes[position])
-        view.tab_content_text.text = MainData.mainTabStr[position]
+        view.tabContentImage.setImageResource(MainData.mainTabRes[position])
+        view.tabContentText.text = MainData.mainTabStr[position]
         return view
     }
 
     fun onTabItemSelected(position: Int){
 //        val transaction = fragmentManager.beginTransaction()
         val transaction = supportFragmentManager.beginTransaction()//v4 使用supportFragmentManager
-        transaction.replace(R.id.main_container, MainData.mainFragmentList[position]).commit()
+        /*when(position){
+            0 -> transaction.replace(R.id.main_container, HomeFragment()).commit()
+            1 -> transaction.replace(R.id.main_container, DiscoverFragment()).commit()
+            2 -> transaction.replace(R.id.main_container, FollowFragment()).commit()
+            3 -> transaction.replace(R.id.main_container, MineFragment()).commit()
+        }*/
+        transaction.replace(R.id.mainContainer, MainData.mainFragmentList[position]).commit()
         onToolbarSelected(position)
     }
 }

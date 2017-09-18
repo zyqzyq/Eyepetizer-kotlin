@@ -3,10 +3,12 @@ package com.zyqzyq.eyepetizer.ui.fragments
 
 import android.os.Bundle
 import android.support.v4.app.Fragment
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.zyqzyq.eyepetizer.R
+import com.zyqzyq.eyepetizer.TAG
 import com.zyqzyq.eyepetizer.mvp.contract.DiscoveryContract
 import com.zyqzyq.eyepetizer.mvp.model.bean.DiscoveryTabInfo
 import com.zyqzyq.eyepetizer.mvp.presenter.DiscoveryPresenter
@@ -27,6 +29,7 @@ class DiscoverFragment: Fragment(),DiscoveryContract.View{
         initView()
         initListener()
         presenter.requestTabInfoData()
+        Log.d(TAG,"Discover view created")
     }
 
     private fun initView(){
@@ -49,6 +52,6 @@ class DiscoverFragment: Fragment(),DiscoveryContract.View{
 
         val discoveryAdapter = DiscoveryAdapter(fragmentManager,titleList,fragmentList)
         discoverViewPager.adapter = discoveryAdapter
-        discover_tab_layout.setupWithViewPager(discoverViewPager)
+        discoverTabLayout.setupWithViewPager(discoverViewPager)
     }
 }

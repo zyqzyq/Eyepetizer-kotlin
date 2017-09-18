@@ -6,11 +6,8 @@ import android.os.Bundle
 import com.zyqzyq.eyepetizer.R
 import android.os.Handler
 import android.os.Message
-import android.util.Log
 import kotlinx.android.synthetic.main.activity_splash.*
 import org.jetbrains.anko.startActivity
-import com.zyqzyq.eyepetizer.TAG
-
 
 
 /**
@@ -24,11 +21,11 @@ class SplashActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
-        Log.d(TAG,splash_image.alpha.toString())
-        splash_image.alpha = image_alpha
-        en_tv.typeface = Typeface.createFromAsset(assets,"fonts/Lobster-1.4.otf")
-        cn_tv.alpha = image_alpha
-        en_tv.alpha = image_alpha
+
+        splashImage.alpha = image_alpha
+        enTv.typeface = Typeface.createFromAsset(assets,"fonts/Lobster-1.4.otf")
+        cnTv.alpha = image_alpha
+        enTv.alpha = image_alpha
         isRunning = true
         // 开启一个线程来让Alpha值递减
         Thread(Runnable {
@@ -47,12 +44,12 @@ class SplashActivity : AppCompatActivity() {
         mHandler = object : Handler() {
             override fun handleMessage(msg: Message) {
                 super.handleMessage(msg)
-                splash_image.alpha = image_alpha
-                cn_tv.alpha = image_alpha
-                en_tv.alpha = image_alpha
+                splashImage.alpha = image_alpha
+                cnTv.alpha = image_alpha
+                enTv.alpha = image_alpha
                 // 设置textview显示当前的Alpha值
                 // 刷新视图
-                splash_image.invalidate()
+                splashImage.invalidate()
             }
         }
         Handler().postDelayed( {

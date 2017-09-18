@@ -6,23 +6,16 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".ui.activities.MainActivity">
-
     <FrameLayout
-            android:id="@+id/main_container"
+            android:id="@+id/mainContainer"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
     </FrameLayout>
 
     <include layout="@layout/toolbar"/>
 
-    <View
-            android:layout_width="match_parent"
-            android:layout_height=".5dp"
-            android:alpha=".6"
-            android:layout_above="@+id/bottom_tab_layout"
-            android:background="@android:color/darker_gray"/>
     <android.support.design.widget.TabLayout
-            android:id="@+id/bottom_tab_layout"
+            android:id="@+id/mainTabLayout"
             android:layout_width="match_parent"
             android:layout_alignParentBottom="true"
             android:layout_height="50dp"
@@ -32,4 +25,11 @@
             app:tabTextColor="@android:color/darker_gray"
             app:tabGravity="fill">
     </android.support.design.widget.TabLayout>
+
+    <View
+            android:layout_width="match_parent"
+            android:layout_height=".5dp"
+            android:alpha=".6"
+            android:layout_above="@id/mainTabLayout"
+            android:background="@android:color/darker_gray"/>
 </RelativeLayout>

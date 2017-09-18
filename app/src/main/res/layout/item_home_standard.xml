@@ -8,14 +8,14 @@
             android:layout_width="match_parent"
             android:layout_height="250dp">
         <ImageView
-                android:id="@+id/iv_cover"
+                android:id="@+id/ivCover"
                 android:layout_width="match_parent"
                 android:layout_height="250dp"
                 android:scaleType="fitXY"
                 android:src="@mipmap/home_page_header_cover"
                 tools:ignore="ContentDescription"/>
         <ImageView
-                android:id="@+id/daily_label"
+                android:id="@+id/dailyLabel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@mipmap/daily_label"
@@ -30,7 +30,7 @@
             android:id="@+id/homeStandardRv">
 
         <ImageView
-                android:id="@+id/iv_avatar"
+                android:id="@+id/ivAvatar"
                 android:layout_width="38dp"
                 android:layout_height="38dp"
                 android:layout_centerVertical="true"
@@ -43,20 +43,21 @@
                 android:layout_marginRight="30dp"
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="15dp"
-                android:layout_toRightOf="@id/iv_avatar"
+                android:layout_toRightOf="@id/ivAvatar"
                 android:orientation="vertical" tools:ignore="RelativeOverlap,RtlHardcoded">
 
             <TextView
                     android:singleLine="true"
-                    android:id="@+id/tv_title"
+                    android:id="@+id/tvTitle"
                     android:textColor="#000"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="一敲二腌三过油，轻松学会炒牛柳"
-                    android:textSize="15sp" tools:ignore="Deprecated,HardcodedText"/>
+                    android:textSize="15sp"
+                    tools:ignore="Deprecated,HardcodedText"/>
 
             <TextView
-                    android:id="@+id/tv_tag"
+                    android:id="@+id/tvTag"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="11sp" tools:ignore="SmallSp"/>
@@ -64,14 +65,15 @@
 
 
         <TextView
-                android:id="@+id/tv_category"
+                android:id="@+id/tvCategory"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
                 android:layout_marginRight="15dp"
                 android:text="2天前"
-                android:textSize="15sp" tools:ignore="HardcodedText,RtlHardcoded"/>
+                android:textSize="15sp"
+                tools:ignore="HardcodedText,RtlHardcoded"/>
         <View
                 android:layout_width="match_parent"
                 android:layout_height="1px"

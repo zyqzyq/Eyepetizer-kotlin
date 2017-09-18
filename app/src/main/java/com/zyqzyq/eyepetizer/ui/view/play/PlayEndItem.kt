@@ -2,12 +2,13 @@ package com.zyqzyq.eyepetizer.ui.view.play
 
 import android.content.Context
 import android.graphics.Color
+
 import android.graphics.Typeface
 import android.util.AttributeSet
 import android.view.View
 import android.widget.LinearLayout
 import com.zyqzyq.eyepetizer.R
-import kotlinx.android.synthetic.main.item_play_end.view.*
+import kotlinx.android.synthetic.main.item_standard_text.view.*
 
 class PlayEndItem : LinearLayout {
 
@@ -18,11 +19,14 @@ class PlayEndItem : LinearLayout {
     }
 
     private fun init() {
-        View.inflate(context, R.layout.item_play_end, this)
-        playInfoEnd.typeface = Typeface.createFromAsset(context.assets,"fonts/Lobster-1.4.otf")
+        View.inflate(context, R.layout.item_standard_text, this)
+        standardText.text = "-The end-"
+        standardText.setPadding(0,100,0,100)
+        standardText.setTextColor(Color.WHITE)
+        standardText.typeface = Typeface.createFromAsset(context.assets,"fonts/Lobster-1.4.otf")
     }
 
     fun setShow(isShow: Boolean){
-        playInfoEnd.visibility = if (isShow) View.VISIBLE else View.GONE
+        standardText.visibility = if (isShow) View.VISIBLE else View.GONE
     }
 }

@@ -38,9 +38,11 @@ class HomeBannerItem: FrameLayout{
             isVideo = false
             videoView.visibility = View.GONE
         }else{
+            Log.d(TAG,thumbPlayUrl)
             isVideo = true
             videoView.visibility = View.VISIBLE
             videoView.setUp(thumbPlayUrl,false,"")
+            videoView.isLooping =true
             GSYVideoType.setShowType(GSYVideoType.SCREEN_MATCH_FULL)
         }
     }
@@ -48,35 +50,14 @@ class HomeBannerItem: FrameLayout{
         val view = View.inflate(context, R.layout.item_home_banner,null)
         addView(view)
     }
-    private fun initVideoView() {
-        isInitVideoView = true
-        videoView.setVideoAllCallBack(object : EmptyControlVideo.EmptyControlVideoCallBack() {
-            override fun onPrepared(url: String?, vararg objects: Any?) {
-                Log.d(TAG, "onPrepared")//加载成功
-                imageView.visibility = View.INVISIBLE
-            }
 
-            override fun onAutoComplete(url: String?, vararg objects: Any?) {
-                Log.d(TAG, "onAutoComplete")//播放完成
-                imageView.visibility = View.VISIBLE
-                videoView.startPlayLogic()
-
-            }
-
-            override fun onPlayError(url: String?, vararg objects: Any?) {
-                Log.d(TAG, "onPlayError")
-                imageView.visibility = View.VISIBLE
-                videoView.startPlayLogic()
-            }
-        })
-    }
     /**
      * 开始播放
      */
     fun play() {
         if (!isInitVideoView && videoView.visibility == View.VISIBLE) {
             videoView.startPlayLogic()
-            initVideoView()
+            isInitVideoView = true
         }
     }
     /**

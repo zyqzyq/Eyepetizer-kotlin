@@ -23,8 +23,8 @@ class PlayVideoCardItem : RelativeLayout {
 
     fun setData(item: HomeItem) {
         //设置图片
-        Glide.with(context).load(item.data?.cover?.detail).centerCrop().into(this.iv_video_card)
-        this.tv_title.text = item.data?.title
-        this.tv_tag.text = "#${item.data?.category}  /  ${durationFormat(item.data?.duration)} ${if (item.data?.library == "DAILY") " /  开眼精选" else ""}"
+        Glide.with(context).load(item.data?.cover?.detail).centerCrop().into(this.ivVideoCard)
+        this.tvTitle.text = item.data?.title
+        this.tvTag.text = "#${item.data?.category}  /  ${durationFormat(item.data?.duration)} ${if (item.data?.library == "DAILY") " /  开眼精选" else ""}"
     }
 }
