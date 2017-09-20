@@ -2,6 +2,7 @@ package com.zyqzyq.eyepetizer.util
 
 import android.content.Context
 import android.util.DisplayMetrics
+import org.jetbrains.anko.displayMetrics
 
 object DisplayManager {
 
@@ -103,3 +104,4 @@ object DisplayManager {
         return (dipValue * scale!! + 0.5f).toInt()
     }
 }
+

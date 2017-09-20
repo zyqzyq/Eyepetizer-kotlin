@@ -8,7 +8,6 @@ import android.view.ViewGroup
 import com.zyqzyq.eyepetizer.TAG
 import com.zyqzyq.eyepetizer.mvp.model.bean.HomeItem
 import com.zyqzyq.eyepetizer.ui.activities.PlayActivity
-import org.jetbrains.anko.startActivity
 
 class BannerAdapter: PagerAdapter(){
     var datas: ArrayList<HomeItem>? = null
@@ -39,7 +38,6 @@ class BannerAdapter: PagerAdapter(){
         container?.addView(view)
         viewList[position].play()
         view.setOnClickListener { _ ->
-
         val intent = Intent(view.context, PlayActivity::class.java)
             intent.putExtra("data", datas!![position])
             view.context.startActivity(intent)  }

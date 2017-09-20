@@ -1,6 +1,9 @@
 package com.zyqzyq.eyepetizer.ui.view.home
 
 import android.content.Context
+import android.graphics.Color
+import android.os.Handler
+import android.os.Message
 import android.util.AttributeSet
 import android.util.Log
 import android.view.View
@@ -12,7 +15,8 @@ import com.zyqzyq.eyepetizer.EmptyControlVideo
 import com.zyqzyq.eyepetizer.R
 import com.zyqzyq.eyepetizer.TAG
 import com.zyqzyq.eyepetizer.mvp.model.bean.HomeItem
-import kotlinx.android.synthetic.main.item_home_banner.view.*
+import kotlinx.android.synthetic.main.item_home_banner_item.view.*
+
 
 /*主要是适配banner的图片和播放器*/
 class HomeBannerItem: FrameLayout{
@@ -47,8 +51,7 @@ class HomeBannerItem: FrameLayout{
         }
     }
     private fun initView(){
-        val view = View.inflate(context, R.layout.item_home_banner,null)
-        addView(view)
+       View.inflate(context, R.layout.item_home_banner_item,this)
     }
 
     /**

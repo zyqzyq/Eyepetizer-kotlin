@@ -30,3 +30,7 @@ fun View.durationFormat(duration: Long?): String {
         }
     }
 }
+
+fun checkChar(ch: Char): Boolean {
+    return (ch+"").toByteArray().size == 1
+}

@@ -34,8 +34,7 @@ class EmptyControlVideo : StandardGSYVideoPlayer {
         mBrightness = false
     }
 
-    private fun touchDoubleUp() {
-        //super.touchDoubleUp();
-        //不需要双击暂停
+    override fun dismissVolumeDialog() {
+        super.dismissVolumeDialog()
     }
 }

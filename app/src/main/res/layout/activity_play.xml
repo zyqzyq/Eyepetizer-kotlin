@@ -11,7 +11,7 @@
         <com.shuyu.gsyvideoplayer.video.StandardGSYVideoPlayer
                 android:id="@+id/gsyPlayer"
                 android:layout_width="match_parent"
-                android:layout_height="250dp"/>
+                android:layout_height="300dp"/>
 
         <ImageView
                 android:id="@+id/playBg"

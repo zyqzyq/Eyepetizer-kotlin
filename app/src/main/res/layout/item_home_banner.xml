@@ -1,24 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-             android:layout_width="match_parent"
-             android:layout_height="match_parent">
-
-    <com.zyqzyq.eyepetizer.EmptyControlVideo
-            android:id="@+id/videoView"
-            android:background="@android:color/black"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:background="@android:color/darker_gray"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+    <android.support.v4.view.ViewPager
+            android:id="@+id/bannerViewPager"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-
-    <ImageView
-            android:scaleType="fitXY"
-            android:id="@+id/imageView"
+            android:layout_height="360dp"/>
+    <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-
-    <View
-            android:background="#55000000"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-    </View>
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_gravity="bottom|center_horizontal"
+            android:gravity="center_horizontal">
+        <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/home_page_header_icon"
+                android:scaleType="centerInside"
+                android:padding="10dp" tools:ignore="ContentDescription"/>
+        <TextView
+                android:textColor="@android:color/white"
+                android:id="@+id/bannerTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
+                android:textAppearance="?android:textAppearanceLarge"/>
+        <TextView
+                android:textColor="@android:color/white"
+                android:id="@+id/bannerSlogan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
+                android:textAppearance="?android:textAppearanceMedium"/>
+        <LinearLayout
+                android:id="@+id/bannerIndicators"
+                android:gravity="center_horizontal|bottom"
+                android:padding="10dp"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+        </LinearLayout>
+    </LinearLayout>
 </FrameLayout>

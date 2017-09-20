@@ -14,7 +14,7 @@ import com.zyqzyq.eyepetizer.TAG
 import com.zyqzyq.eyepetizer.durationFormat
 import com.zyqzyq.eyepetizer.mvp.model.bean.HomeItem
 import kotlinx.android.synthetic.main.item_home_standard.view.*
-/*adpater TYPE_VIDEO*/
+/*adapter TYPE_VIDEO*/
 class HomeStandardItem : FrameLayout {
 
 
