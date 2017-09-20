@@ -14,7 +14,6 @@ import com.zyqzyq.eyepetizer.mvp.model.bean.DiscoveryTabInfo
 import com.zyqzyq.eyepetizer.mvp.presenter.DiscoveryPresenter
 import com.zyqzyq.eyepetizer.ui.adapters.DiscoveryAdapter
 import kotlinx.android.synthetic.main.fragment_discover.*
-import org.jetbrains.anko.toast
 
 class DiscoverFragment: Fragment(),DiscoveryContract.View{
 
@@ -24,8 +23,8 @@ class DiscoverFragment: Fragment(),DiscoveryContract.View{
         return inflater?.inflate(R.layout.fragment_discover,container,false)
     }
 
-    override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
+    override fun onResume() {
+        super.onResume()
         initView()
         initListener()
         presenter.requestTabInfoData()
@@ -43,15 +42,17 @@ class DiscoverFragment: Fragment(),DiscoveryContract.View{
     }
 
     override fun setTabAndFragment(tabInfo: DiscoveryTabInfo) {
+        Log.d(TAG,"SET TAB AND FRAGMENT")
         val titleList= ArrayList<String>()
         val fragmentList= ArrayList<Fragment>()
         tabInfo.tabInfo.tabList.map {
             titleList.add(it.name)
             fragmentList.add(DiscoverItemFragment(it))
         }
-
-        val discoveryAdapter = DiscoveryAdapter(fragmentManager,titleList,fragmentList)
+        //getSupportFragmentManager() 替换为getChildFragmentManager()解决切换后无法显示的问题
+        val discoveryAdapter = DiscoveryAdapter(childFragmentManager,titleList,fragmentList)
         discoverViewPager.adapter = discoveryAdapter
+        discoverViewPager.offscreenPageLimit = 0
         discoverTabLayout.setupWithViewPager(discoverViewPager)
     }
 }

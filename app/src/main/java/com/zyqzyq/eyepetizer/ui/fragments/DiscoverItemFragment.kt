@@ -21,7 +21,7 @@ import org.jetbrains.anko.toast
 class DiscoverItemFragment(private val tab: Tab) : Fragment(), DiscoveryContract.ItemView {
 
     var presenter: DiscoveryItemPresenter = DiscoveryItemPresenter(this)
-    val recyclerView by lazy { PullRecyclerView(context)}
+    val recyclerView by lazy { RecyclerView(context)}
     val adapter by lazy {
         when (tab.name){
             "热门" -> HotAdapter()
@@ -30,7 +30,6 @@ class DiscoverItemFragment(private val tab: Tab) : Fragment(), DiscoveryContract
     }
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-
         recyclerView.layoutParams = ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT)
         recyclerView.layoutManager = LinearLayoutManager(context)
         recyclerView.adapter = adapter
@@ -39,21 +38,11 @@ class DiscoverItemFragment(private val tab: Tab) : Fragment(), DiscoveryContract
     }
 
     override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
-        Log.d(TAG,"Discover Item View Created")
+        super.onViewCreated(view, savedInstanceState)
         presenter.requestTabItemData(tab.apiUrl)
+        Log.d(TAG,"DiscoverItem ViewCreated")
     }
-
     override fun setTabItemData(itemList: ArrayList<HomeItem>) {
         adapter.addItemList(itemList)
-    }
-
-    override fun onResume() {
-        super.onResume()
-        recyclerView.setOnRefreshListener(object : PullRecyclerView.OnRefreshListener{
-            override fun onRefresh() {
-                presenter.requestTabItemData(tab.apiUrl)
-                activity.toast("刷新")
-            }
-        })
     }
 }
