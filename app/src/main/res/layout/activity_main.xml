@@ -6,13 +6,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".ui.activities.MainActivity">
-    <FrameLayout
-            android:id="@+id/mainContainer"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-    </FrameLayout>
 
-    <include layout="@layout/toolbar"/>
 
     <android.support.design.widget.TabLayout
             android:id="@+id/mainTabLayout"
@@ -26,6 +20,14 @@
             app:tabGravity="fill">
     </android.support.design.widget.TabLayout>
 
+    <FrameLayout
+            android:layout_above="@id/mainTabLayout"
+            android:id="@+id/mainContainer"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+    </FrameLayout>
+
+    <include layout="@layout/toolbar"/>
     <View
             android:layout_width="match_parent"
             android:layout_height=".5dp"

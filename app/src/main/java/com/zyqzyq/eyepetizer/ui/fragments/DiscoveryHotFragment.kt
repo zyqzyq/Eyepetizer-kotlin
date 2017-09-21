@@ -4,30 +4,20 @@ import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.zyqzyq.eyepetizer.TAG
 import com.zyqzyq.eyepetizer.mvp.contract.DiscoveryContract
 import com.zyqzyq.eyepetizer.mvp.model.bean.HomeItem
-import com.zyqzyq.eyepetizer.mvp.model.bean.Tab
 import com.zyqzyq.eyepetizer.mvp.presenter.DiscoveryItemPresenter
-import com.zyqzyq.eyepetizer.ui.adapters.HotAdapter
-import com.zyqzyq.eyepetizer.ui.view.home.PullRecyclerView
-import org.jetbrains.anko.toast
+import com.zyqzyq.eyepetizer.ui.adapters.DiscoveryHotAdapter
 
 
-class DiscoverItemFragment(private val tab: Tab) : Fragment(), DiscoveryContract.ItemView {
+class DiscoveryHotFragment(private val apiUrl: String) : Fragment(), DiscoveryContract.ItemView {
 
     var presenter: DiscoveryItemPresenter = DiscoveryItemPresenter(this)
     val recyclerView by lazy { RecyclerView(context)}
-    val adapter by lazy {
-        when (tab.name){
-            "热门" -> HotAdapter()
-            else -> HotAdapter()
-        }
-    }
+    val adapter by lazy { DiscoveryHotAdapter() }
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         recyclerView.layoutParams = ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT)
@@ -39,8 +29,7 @@ class DiscoverItemFragment(private val tab: Tab) : Fragment(), DiscoveryContract
 
     override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        presenter.requestTabItemData(tab.apiUrl)
-        Log.d(TAG,"DiscoverItem ViewCreated")
+        presenter.requestTabItemData(apiUrl)
     }
     override fun setTabItemData(itemList: ArrayList<HomeItem>) {
         adapter.addItemList(itemList)

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools" android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/categoryTitleLayout"
+            android:layout_alignParentTop="true" tools:ignore="UselessParent">
+        <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/categoryTitle"
+                android:gravity="center_horizontal"
+                android:paddingTop="10dp"
+                android:textAppearance="?android:textAppearanceLarge"
+                android:layout_centerHorizontal="true"/>
+        <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/categoryTitle"
+                android:id="@+id/categorySubTitle"
+                android:gravity="center_horizontal"
+                android:textColor="@android:color/darker_gray"
+                android:padding="10dp"
+                android:textAppearance="?android:textAppearanceSmall"
+                android:layout_centerHorizontal="true"/>
+        <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:textAppearanceSmall"
+                android:text="+关注"
+                android:layout_centerVertical="true"
+                android:layout_alignParentEnd="true"
+                android:background="@drawable/selector_button_standard"
+                android:layout_marginEnd="10dp"
+                tools:ignore="HardcodedText"/>
+    </RelativeLayout>
+
+    <android.support.v4.view.ViewPager
+            android:layout_width="match_parent"
+            android:layout_height="360dp"
+            android:id="@+id/categoryViewPager"
+            android:layout_below="@id/categoryTitleLayout">
+    </android.support.v4.view.ViewPager>
+
+
+</RelativeLayout>

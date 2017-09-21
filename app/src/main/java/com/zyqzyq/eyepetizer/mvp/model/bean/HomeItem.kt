@@ -67,7 +67,7 @@ data class HomeItem(val type: String, val data: Data?, val tag: String) : Serial
         data class Url(val size: Long) : Serializable
 
         data class Header(val id: Int,val title: String,val font: String,val cover: String,val label: Label,
-                          val actionUrl: String , val labelList: ArrayList<Label>): Serializable{
+                          val actionUrl: String ,val subtitle:String, val labelList: ArrayList<Label>): Serializable{
             data class Label(val text: String,val card: String,val detial: Any,val actionUrl: Any)
         }
 

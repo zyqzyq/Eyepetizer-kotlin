@@ -11,7 +11,7 @@ import com.zyqzyq.eyepetizer.ui.view.home.HomeTextHeaderItem
 import com.zyqzyq.eyepetizer.ui.view.hot.ScrollCardItem
 import com.zyqzyq.eyepetizer.ui.view.hot.SquareCardItem
 
-class HotAdapter : RecyclerView.Adapter<HotAdapter.ViewHolder>(){
+class DiscoveryHotAdapter : RecyclerView.Adapter<DiscoveryHotAdapter.ViewHolder>(){
     private val TYPE_SCROLL_CARD = 1
     private val TYPE_TEXT_HEADER = 2
     private val TYPE_STANDARD = 3

@@ -15,7 +15,7 @@ import com.zyqzyq.eyepetizer.mvp.presenter.DiscoveryPresenter
 import com.zyqzyq.eyepetizer.ui.adapters.DiscoveryAdapter
 import kotlinx.android.synthetic.main.fragment_discover.*
 
-class DiscoverFragment: Fragment(),DiscoveryContract.View{
+class DiscoveryFragment: Fragment(),DiscoveryContract.View{
 
     private val presenter: DiscoveryPresenter = DiscoveryPresenter(this)
 
@@ -42,12 +42,16 @@ class DiscoverFragment: Fragment(),DiscoveryContract.View{
     }
 
     override fun setTabAndFragment(tabInfo: DiscoveryTabInfo) {
-        Log.d(TAG,"SET TAB AND FRAGMENT")
+
         val titleList= ArrayList<String>()
         val fragmentList= ArrayList<Fragment>()
         tabInfo.tabInfo.tabList.map {
             titleList.add(it.name)
-            fragmentList.add(DiscoverItemFragment(it))
+            when (it.name){
+                "热门" -> fragmentList.add(DiscoveryHotFragment(it.apiUrl))
+                "分类" -> fragmentList.add(DiscoveryCategoryFragment(it.apiUrl))
+                else -> fragmentList.add(DiscoveryHotFragment(it.apiUrl))
+            }
         }
         //getSupportFragmentManager() 替换为getChildFragmentManager()解决切换后无法显示的问题
         val discoveryAdapter = DiscoveryAdapter(childFragmentManager,titleList,fragmentList)
