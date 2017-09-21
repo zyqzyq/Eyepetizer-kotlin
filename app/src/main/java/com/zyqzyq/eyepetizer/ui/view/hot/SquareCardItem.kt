@@ -35,9 +35,9 @@ class SquareCardItem : FrameLayout {
         hotSquareRv.adapter = squareCardAdapter
     }
     fun setData(data: HomeItem?) {
-        hotSquartTv.text = data?.data?.header?.title ?: "热门排行"
-        hotSquartTv.paint.isFakeBoldText = true
-        hotSquartTv.gravity = Gravity.CENTER
+        hotSquareTv.text = data?.data?.header?.title ?: "热门排行"
+        hotSquareTv.paint.isFakeBoldText = true
+        hotSquareTv.gravity = Gravity.CENTER
         squareCardAdapter.setItemList(data?.data?.itemList!!)
         squareCardAdapter.notifyDataSetChanged()
     }

@@ -13,7 +13,7 @@
             android:background="@android:color/white">
 
         <TextView
-                android:id="@+id/hotSquartTv"
+                android:id="@+id/hotSquareTv"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"

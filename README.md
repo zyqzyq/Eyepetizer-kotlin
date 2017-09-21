@@ -25,6 +25,7 @@
     实现相关视频推荐
 ## 发现页面
     实现显示分类小页面
+    实现banner轮播图（用的git大佬的轮子,链接在最底下）
 ## bug
     打开首页会占用音频播放导致音乐播放器停止工作(考虑空的播放器能否禁用声音，假装这个锅不是我的)
     播放视频时莫名的会停止（有时候没问题，在研究研究，毫无头绪）
@@ -43,4 +44,5 @@
 ## 参考
     https://github.com/kaikaixue/Eyepetizer
     https://github.com/LRH1993/Eyepetizer-in-Kotlin
+    https://github.com/youth5201314/banner
     感谢大佬们的资源，向大佬们学习。
