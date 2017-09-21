@@ -1,16 +1,15 @@
 package com.zyqzyq.eyepetizer.ui.view.hot
 
-import android.graphics.Color
 import android.support.v7.widget.RecyclerView
 import android.view.Gravity
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import com.bumptech.glide.DrawableRequestBuilder
 import com.bumptech.glide.Glide
 import com.zyqzyq.eyepetizer.R
 import com.zyqzyq.eyepetizer.mvp.model.bean.HomeItem
+import com.zyqzyq.eyepetizer.util.DisplayManager
 
 class SquareCardAdapter: RecyclerView.Adapter<SquareCardAdapter.ViewHolder>(){
     private val TYPE_SQUARE_CARD = 1
@@ -38,14 +37,16 @@ class SquareCardAdapter: RecyclerView.Adapter<SquareCardAdapter.ViewHolder>(){
         when(viewType){
             TYPE_SQUARE_CARD -> {
                 val imageView = ImageView(parent?.context)
-                imageView.layoutParams = RecyclerView.LayoutParams(250,RecyclerView.LayoutParams.MATCH_PARENT)
+                val layoutParams = RecyclerView.LayoutParams(DisplayManager.dip2px(180f)!!,RecyclerView.LayoutParams.MATCH_PARENT)
+                layoutParams.setMargins(DisplayManager.dip2px(5f)!!,0,DisplayManager.dip2px(5f)!!,0)
+                imageView.layoutParams = layoutParams
                 return ViewHolder(imageView)
             }
             else -> {
                 val textView = TextView(parent?.context)
                 textView.background = parent?.context?.resources?.getDrawable(R.drawable.txt_sharp)
                 textView.gravity = Gravity.CENTER
-                val lp = RecyclerView.LayoutParams(250,
+                val lp = RecyclerView.LayoutParams(DisplayManager.dip2px(180f)!!,
                         RecyclerView.LayoutParams.MATCH_PARENT)
 //                lp.setMargins(10,10,10,10)
                 textView.layoutParams = lp

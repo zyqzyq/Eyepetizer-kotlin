@@ -6,6 +6,7 @@ import android.graphics.Typeface
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.design.widget.TabLayout
+import android.view.KeyEvent
 import android.view.LayoutInflater
 import android.view.View
 import com.zyqzyq.eyepetizer.MainData
@@ -14,6 +15,9 @@ import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.tabview.view.*
 import kotlinx.android.synthetic.main.toolbar.*
 import org.jetbrains.anko.toast
+import android.widget.Toast
+
+
 
 /**
 *主页面
@@ -119,5 +123,21 @@ class MainActivity : AppCompatActivity() {
         }*/
         transaction.replace(R.id.mainContainer, MainData.mainFragmentList[position]).commit()
         onToolbarSelected(position)
+    }
+
+    private var exitTime: Long = 0
+
+    override fun onKeyDown(keyCode: Int, event: KeyEvent): Boolean {
+        if (keyCode == KeyEvent.KEYCODE_BACK && event.action == KeyEvent.ACTION_DOWN) {
+            if (System.currentTimeMillis() - exitTime > 2000) {
+                Toast.makeText(applicationContext, "再按一次退出程序", Toast.LENGTH_SHORT).show()
+                exitTime = System.currentTimeMillis()
+            } else {
+                finish()
+                System.exit(0)
+            }
+            return true
+        }
+        return super.onKeyDown(keyCode, event)
     }
 }

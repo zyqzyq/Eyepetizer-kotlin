@@ -20,7 +20,7 @@
                 android:layout_height="wrap_content"
                 android:src="@mipmap/daily_label"
                 android:layout_alignParentEnd="true"
-                android:layout_alignParentBottom="true"/>
+                android:layout_alignParentBottom="true" tools:ignore="ContentDescription"/>
     </RelativeLayout>
 
     <RelativeLayout
@@ -35,7 +35,8 @@
                 android:layout_height="38dp"
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="15dp"
-                android:src="@mipmap/pgc_default_avatar" tools:ignore="ContentDescription,RtlHardcoded"/>
+                android:src="@mipmap/pgc_default_avatar"
+                tools:ignore="ContentDescription,RtlHardcoded"/>
 
         <LinearLayout
                 android:layout_width="wrap_content"

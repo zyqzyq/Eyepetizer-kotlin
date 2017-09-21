@@ -53,14 +53,36 @@ class HomeBannerItem: FrameLayout{
     private fun initView(){
        View.inflate(context, R.layout.item_home_banner_item,this)
     }
+    private fun initVideoView(){
+        isInitVideoView = true
+        videoView.setVideoAllCallBack(object : EmptyControlVideo.EmptyControlVideoCallBack(){
+            override fun onPrepared(url: String?, vararg objects: Any?) {
+//                Log.d(TAG, "onPrepared");//加载成功
+                imageView.visibility = View.INVISIBLE
+            }
 
+            override fun onAutoComplete(url: String?, vararg objects: Any?) {
+//                Log.d(TAG, "onAutoComplete");//播放完成
+                imageView.visibility = View.VISIBLE
+                videoView.startPlayLogic()
+            }
+
+            override fun onPlayError(url: String?, vararg objects: Any?) {
+//                Log.d(TAG, "onPlayError");
+                imageView.visibility = View.VISIBLE
+                videoView.startPlayLogic()
+            }
+        })
+    }
     /**
      * 开始播放
      */
     fun play() {
+//        Log.d(TAG,"play video start")
         if (!isInitVideoView && videoView.visibility == View.VISIBLE) {
+//            Log.d(TAG,"startPlayLogic video start")
             videoView.startPlayLogic()
-            isInitVideoView = true
+            initVideoView()
         }
     }
     /**
@@ -69,7 +91,7 @@ class HomeBannerItem: FrameLayout{
     fun releasePlayer() {
         isInitVideoView = false
         if (videoView.visibility == View.VISIBLE) {
-            videoView.setStandardVideoAllCallBack(null)
+//            videoView.setStandardVideoAllCallBack(null)
             GSYVideoPlayer.releaseAllVideos()
         }
     }

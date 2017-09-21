@@ -21,7 +21,8 @@ import com.zyqzyq.eyepetizer.mvp.model.bean.HomeBean
 import com.zyqzyq.eyepetizer.mvp.model.bean.HomeItem
 import com.zyqzyq.eyepetizer.TAG
 import com.zyqzyq.eyepetizer.ui.view.home.PullRecyclerView
-import kotlinx.android.synthetic.main.toolbar.*
+
+
 
 /**
  * 首页（使用recyclerView 显示个个项目）
@@ -82,8 +83,8 @@ class HomeFragment: Fragment(), HomeContract.View{
 
             override fun onScrolled(recyclerView: RecyclerView?, dx: Int, dy: Int) {
                 super.onScrolled(recyclerView, dx, dy)
-
             }
+
         })
     }
 
@@ -106,6 +107,5 @@ class HomeFragment: Fragment(), HomeContract.View{
 //        toast("网络错误")
         homeRecyclerView.hideLoading()
     }
-
 
 }

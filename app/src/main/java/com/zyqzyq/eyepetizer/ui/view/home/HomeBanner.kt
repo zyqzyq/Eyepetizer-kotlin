@@ -21,9 +21,10 @@ import kotlinx.android.synthetic.main.item_home_banner.view.*
 class HomeBanner: FrameLayout{
     private val bannerAdapter: BannerAdapter by lazy {BannerAdapter()}
     private val msgWhat = 0
+    private var bannerItemCount = 1
     private val handler = object : Handler() {
         override fun handleMessage(msg: android.os.Message) {
-            bannerViewPager.currentItem = (bannerViewPager.currentItem + 1)%bannerAdapter.datas!!.size//收到消息，指向下一个页面
+            bannerViewPager.currentItem = bannerViewPager.currentItem + 1//收到消息，指向下一个页面
             this.sendEmptyMessageDelayed(msgWhat, 5000)//2S后在发送一条消息，由于在handleMessage()方法中，造成死循环。
 //            Log.d(TAG, "handleMessage")
         }
@@ -41,7 +42,7 @@ class HomeBanner: FrameLayout{
 
     private fun setTitleSlogan(position: Int) {
 //        currentTitlePostion=position
-        val bannerItemData = bannerAdapter.datas!![position]
+        val bannerItemData = bannerAdapter.datas!![position%bannerItemCount]
 
 //        tvTitle.text=bannerItemData.data?.title
         TiaoZiUtil(bannerTitle,bannerItemData.data?.title!!)
@@ -50,6 +51,9 @@ class HomeBanner: FrameLayout{
     fun setData(itemList: ArrayList<HomeItem>){
 
         bannerAdapter.datas = itemList
+        bannerItemCount = itemList.size
+        bannerAdapter.itemCount = bannerItemCount
+        bannerViewPager.currentItem = bannerItemCount * 1000
         bannerAdapter.notifyDataSetChanged()
         setIndicators(itemList)
         setTitleSlogan(0)
@@ -69,7 +73,7 @@ class HomeBanner: FrameLayout{
                 setTitleSlogan(position)
                 (0 until bannerIndicators.childCount)
                         .forEach {
-                            if (it == position) {
+                            if (it == position%bannerItemCount) {
                                 (bannerIndicators.getChildAt(it) as Indicator).setState(true)
                             } else {
                                 (bannerIndicators.getChildAt(it) as Indicator).setState(false)

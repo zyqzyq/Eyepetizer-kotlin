@@ -10,12 +10,15 @@ import com.zyqzyq.eyepetizer.mvp.model.bean.HomeItem
 import com.zyqzyq.eyepetizer.ui.activities.PlayActivity
 
 class BannerAdapter: PagerAdapter(){
+    var itemCount: Int = 1
     var datas: ArrayList<HomeItem>? = null
     var viewList: ArrayList<HomeBannerItem> = ArrayList()
 
     override fun getCount(): Int {
-        return datas?.size ?:0
-//        return Int.MAX_VALUE
+//        return datas?.size ?:0
+        if (datas == null )
+            return 0
+        else return Int.MAX_VALUE
     }
 
     override fun isViewFromObject(view: View?, `object`: Any?): Boolean {
@@ -23,23 +26,24 @@ class BannerAdapter: PagerAdapter(){
     }
 
     override fun destroyItem(container: ViewGroup?, position: Int, `object`: Any?) {
-        container?.removeView(viewList[position])
-        viewList[position].releasePlayer()
+        container?.removeView(viewList[position%itemCount])
+        viewList[position%itemCount].releasePlayer()
     }
 
     override fun instantiateItem(container: ViewGroup?, position: Int): Any {
-        if (viewList.size <= position+1){
-          val bannerItem  =  HomeBannerItem(container?.context,datas!![position])
-            viewList.add(bannerItem)
+        if (viewList.size <= itemCount) {
+            for (i in 0 until itemCount){
+                val homeBannerItem = HomeBannerItem(container?.context, datas!![i])
+                viewList.add(homeBannerItem)
+            }
         }
 
-        Log.d(TAG,position.toString())
-        val view = viewList[position]
+        val view = viewList[position%itemCount]
         container?.addView(view)
-        viewList[position].play()
+        viewList[position%itemCount].play()
         view.setOnClickListener { _ ->
         val intent = Intent(view.context, PlayActivity::class.java)
-            intent.putExtra("data", datas!![position])
+            intent.putExtra("data", datas!![position%itemCount])
             view.context.startActivity(intent)  }
         return view
     }
