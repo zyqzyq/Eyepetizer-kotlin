@@ -1,6 +1,7 @@
 package com.zyqzyq.eyepetizer.ui.view.category
 
 import android.content.Context
+import android.content.Intent
 import android.graphics.Color
 import android.text.Html
 import android.util.AttributeSet
@@ -17,6 +18,7 @@ import android.text.style.ForegroundColorSpan
 import android.text.SpannableString
 import android.text.style.RelativeSizeSpan
 import com.zyqzyq.eyepetizer.durationFormat
+import com.zyqzyq.eyepetizer.ui.activities.PlayActivity
 
 
 class CategoryScrollCardItem: FrameLayout{
@@ -50,7 +52,6 @@ class CategoryScrollCardItem: FrameLayout{
 
             spannableString.setSpan(ForegroundColorSpan(Color.parseColor("#B5B5B5")), startPoint, spannableString.length, Spanned.SPAN_EXCLUSIVE_INCLUSIVE )
             spannableString.setSpan(RelativeSizeSpan(.8f), startPoint, spannableString.length, Spanned.SPAN_EXCLUSIVE_INCLUSIVE )
-
             titles.add(spannableString)
 
 
@@ -73,6 +74,11 @@ class CategoryScrollCardItem: FrameLayout{
         //设置轮播时间
 //        banner.setDelayTime(1500)
         //设置指示器位置（当banner模式中有指示器时）
+        categoryBanner.setOnBannerListener { i ->
+            val intent = Intent(context, PlayActivity::class.java)
+            intent.putExtra("data", data.data.itemList[i])
+            context.startActivity(intent)
+        }
         categoryBanner.setIndicatorGravity(BannerConfig.CENTER)
         //banner设置方法全部调用完毕时最后调用
         categoryBanner.start()
