@@ -7,7 +7,7 @@
         <com.youth.banner.Banner
                 android:id="@+id/hotBanner"
                 android:layout_width="match_parent"
-                android:layout_height="300dp"
+                android:layout_height="360dp"
                 app:indicator_margin="10dp">
 
         </com.youth.banner.Banner>

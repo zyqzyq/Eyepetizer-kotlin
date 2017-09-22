@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                xmlns:tools="http://schemas.android.com/tools" android:orientation="vertical"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent">
+                xmlns:tools="http://schemas.android.com/tools" xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
     <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -31,6 +32,9 @@
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:textAppearanceSmall"
                 android:text="+关注"
+                android:minHeight="0dp"
+                android:minWidth="0dp"
+                android:padding="5dp"
                 android:layout_centerVertical="true"
                 android:layout_alignParentEnd="true"
                 android:background="@drawable/selector_button_standard"
@@ -38,12 +42,20 @@
                 tools:ignore="HardcodedText"/>
     </RelativeLayout>
 
-    <android.support.v4.view.ViewPager
+    <com.youth.banner.Banner
             android:layout_width="match_parent"
-            android:layout_height="360dp"
-            android:id="@+id/categoryViewPager"
-            android:layout_below="@id/categoryTitleLayout">
-    </android.support.v4.view.ViewPager>
-
-
+            android:layout_height="430dp"
+            android:id="@+id/categoryBanner"
+            android:layout_below="@id/categoryTitleLayout"
+            app:image_scale_type="center_inside"
+            app:banner_layout="@layout/category_banner"
+            app:indicator_drawable_selected="@drawable/indicator_selected"
+            app:indicator_drawable_unselected="@drawable/indicator_unselected">
+    </com.youth.banner.Banner>
+    <View
+            android:layout_below="@id/categoryBanner"
+            android:layout_width="match_parent"
+            android:background="@android:color/darker_gray"
+            android:alpha=".6"
+            android:layout_height="5dp"/>
 </RelativeLayout>
