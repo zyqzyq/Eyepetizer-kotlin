@@ -43,11 +43,6 @@ class HomeFragment: Fragment(), HomeContract.View{
     override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 //        initToolbar()
-
-    }
-
-    override fun onResume() {
-        super.onResume()
         initView()
         presenter = HomePresenter(this)
         presenter.requestFirstData()

@@ -17,7 +17,11 @@ class DiscoveryItemPresenter(view: DiscoveryContract.ItemView): DiscoveryContrac
 
     override fun requestMoreTabItemData() {
         nextPageUrl?.let {
-            hotModel.loadMoreTabItemData(nextPageUrl!!) }
+            hotModel.loadMoreTabItemData(nextPageUrl!!)
+                    .subscribe({ it ->
+                        hotView.addTabItemData(it.itemList)
+                        nextPageUrl = it.nextPageUrl
+                    })}
 
     }
 }

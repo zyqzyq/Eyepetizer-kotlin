@@ -18,6 +18,11 @@ class DiscoveryHotAdapter : RecyclerView.Adapter<DiscoveryHotAdapter.ViewHolder>
     private val TYPE_SQUARE_CARD = 4
     val data: ArrayList<HomeItem> by lazy { ArrayList<HomeItem>() }
 
+    fun setItemList(itemList: ArrayList<HomeItem>){
+        data.clear()
+        data.addAll(itemList)
+        notifyDataSetChanged()
+    }
     fun addItemList(itemList: ArrayList<HomeItem>){
         data.addAll(itemList)
         notifyDataSetChanged()

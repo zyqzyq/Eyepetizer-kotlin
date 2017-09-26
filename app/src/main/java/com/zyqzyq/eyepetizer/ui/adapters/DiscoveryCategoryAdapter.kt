@@ -11,6 +11,12 @@ class DiscoveryCategoryAdapter : RecyclerView.Adapter<DiscoveryCategoryAdapter.V
 
     val data: ArrayList<HomeItem> by lazy { ArrayList<HomeItem>() }
 
+    fun setItemList(itemList: ArrayList<HomeItem>){
+        data.clear()
+        data.addAll(itemList)
+        notifyDataSetChanged()
+    }
+
     fun addItemList(itemList: ArrayList<HomeItem>){
         data.addAll(itemList)
         notifyDataSetChanged()

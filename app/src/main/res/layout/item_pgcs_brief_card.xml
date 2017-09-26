@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical"
+              android:layout_marginBottom="8dp">
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginBottom="8dp"
+            android:id="@+id/briefCardRV">
+        <ImageView
+                android:id="@+id/briefCardIcon"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="15dp" tools:ignore="ContentDescription"/>
+        <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:textAppearanceSmall"
+                android:text="+关注"
+                android:padding="5dp"
+                android:id="@+id/briefCardForce"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="15dp"
+                android:minHeight="0dp"
+                android:minWidth="0dp"
+                android:background="@drawable/selector_button_standard"
+                tools:ignore="HardcodedText,RtlHardcoded"/>
+        <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="30dp"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="15dp"
+                android:layout_toEndOf="@id/briefCardIcon"
+                android:layout_toStartOf="@id/briefCardForce">
+            <TextView
+                    android:id="@+id/briefCardTitle"
+                    android:paddingTop="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:textAppearanceMedium"
+                    android:text="标题" tools:ignore="HardcodedText"/>
+            <TextView
+                    android:id="@+id/briefCardDescription"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:textAppearanceSmall"
+                    android:textColor="@android:color/darker_gray"
+                    android:maxLines="1"
+                    android:text="原《瞎看什么》内容创作团队原班人马独立打造。天纳TAMNAAAA 出品。" tools:ignore="HardcodedText"/>
+        </LinearLayout>
+        <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:id="@+id/briefCardLine"
+                android:alpha=".6"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="15dp"
+                android:background="@android:color/darker_gray"
+                tools:ignore="RtlHardcoded"/>
+    </RelativeLayout>
+
+    <android.support.v7.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:id="@+id/briefVideoRV"
+            android:visibility="gone">
+    </android.support.v7.widget.RecyclerView>
+
+</LinearLayout>

@@ -12,6 +12,7 @@ interface DiscoveryContract{
     }
     interface ItemView: BaseView<ItemPresenter>{
         fun setTabItemData(itemList: ArrayList<HomeItem>)
+        fun addTabItemData(itemList: ArrayList<HomeItem>)
     }
     interface Presenter: BasePresenter{
         /**

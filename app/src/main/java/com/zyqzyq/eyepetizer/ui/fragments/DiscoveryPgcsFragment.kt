@@ -11,13 +11,13 @@ import com.zyqzyq.eyepetizer.mvp.contract.DiscoveryContract
 import com.zyqzyq.eyepetizer.mvp.model.bean.HomeItem
 import com.zyqzyq.eyepetizer.mvp.presenter.DiscoveryItemPresenter
 import com.zyqzyq.eyepetizer.ui.adapters.DiscoveryHotAdapter
+import com.zyqzyq.eyepetizer.ui.adapters.DiscoveryPgcsAdapter
 
-
-class DiscoveryHotFragment(private val apiUrl: String) : Fragment(), DiscoveryContract.ItemView {
+class DiscoveryPgcsFragment(private val apiUrl: String) : Fragment(), DiscoveryContract.ItemView {
 
     var presenter: DiscoveryItemPresenter = DiscoveryItemPresenter(this)
-    val recyclerView by lazy { RecyclerView(context)}
-    val adapter by lazy { DiscoveryHotAdapter() }
+    val recyclerView by lazy { RecyclerView(context) }
+    val adapter by lazy { DiscoveryPgcsAdapter() }
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         recyclerView.layoutParams = ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT)

@@ -18,7 +18,7 @@ import com.zyqzyq.eyepetizer.ui.adapters.DiscoveryCategoryAdapter
 class DiscoveryCategoryFragment(private val apiUrl: String) : Fragment(), DiscoveryContract.ItemView {
 
     var presenter: DiscoveryItemPresenter = DiscoveryItemPresenter(this)
-    val recyclerView by lazy { RecyclerView(context) }
+    private val recyclerView by lazy { RecyclerView(context) }
     val adapter by lazy { DiscoveryCategoryAdapter() }
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -31,11 +31,33 @@ class DiscoveryCategoryFragment(private val apiUrl: String) : Fragment(), Discov
 
     override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        initView()
         presenter.requestTabItemData(apiUrl)
     }
+    fun initView(){
+        recyclerView.addOnScrollListener(object : RecyclerView.OnScrollListener(){
+            override fun onScrollStateChanged(recyclerView: RecyclerView?, newState: Int) {
+                super.onScrollStateChanged(recyclerView, newState)
+                if(newState == RecyclerView.SCROLL_STATE_IDLE){
+                    val childCount = recyclerView?.childCount
+                    val itemCount = recyclerView?.layoutManager?.itemCount
+                    val firstVisibleItem = (recyclerView?.layoutManager as LinearLayoutManager).findFirstVisibleItemPosition()
+                    if (firstVisibleItem + childCount!! == itemCount){
+                        onLoadMore()
+                    }
+
+                }
+            }
+        })
+    }
+    fun onLoadMore(){
+        presenter.requestMoreTabItemData()
+    }
     override fun setTabItemData(itemList: ArrayList<HomeItem>) {
-        Log.d(TAG,"setTabITemData")
-        Log.d(TAG,itemList.toString())
+        adapter.setItemList(itemList)
+    }
+
+    override fun addTabItemData(itemList: ArrayList<HomeItem>) {
         adapter.addItemList(itemList)
     }
 }
