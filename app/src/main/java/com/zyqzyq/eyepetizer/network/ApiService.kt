@@ -47,4 +47,16 @@ interface ApiService {
      */
     @GET
     fun getMoreDiscoveryItemData(@Url url: String): Observable<HomeBean>
+
+    /**
+     * 获取关注
+     */
+    @GET("v4/tabs/follow")
+    fun getFollowData(): Observable<HomeBean>
+
+    /**
+     * 获取关注的更多数据
+     */
+    @GET
+    fun getMoreFollowData(@Url url: String): Observable<HomeBean>
 }

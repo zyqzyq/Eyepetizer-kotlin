@@ -50,7 +50,7 @@ class HomeFragment: Fragment(), HomeContract.View{
     private fun initView(){
 
         homeRecyclerView.adapter = homeAdapter
-        homeRecyclerView.layoutManager = LinearLayoutManager(activity)
+        homeRecyclerView.layoutManager = LinearLayoutManager(context)
         homeRecyclerView.setOnRefreshListener(object : PullRecyclerView.OnRefreshListener{
             override fun onRefresh() {
                 Log.d(TAG,"刷新")

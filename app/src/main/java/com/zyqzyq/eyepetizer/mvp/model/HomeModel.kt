@@ -9,12 +9,10 @@ import io.reactivex.Observable
 
 class HomeModel{
     fun loadFirstData(): Observable<HomeBean> {
-        Log.d(TAG,"load first data")
         return Network.service.getFirstHomeData(System.currentTimeMillis()).io_main()
     }
 
     fun loadMoreData(url: String): Observable<HomeBean> {
-        Log.d(TAG,"load more data")
         return Network.service.getMoreHomeData(url).io_main()
     }
 }
