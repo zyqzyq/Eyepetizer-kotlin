@@ -45,8 +45,8 @@ class HomeBanner: FrameLayout{
         val bannerItemData = bannerAdapter.datas!![position%bannerItemCount]
 
 //        tvTitle.text=bannerItemData.data?.title
-        TiaoZiUtil(bannerTitle,bannerItemData.data?.title!!)
-        TiaoZiUtil(bannerSlogan,bannerItemData.data?.slogan!!)
+        TiaoZiUtil(bannerTitle,bannerInvisibleTitle,bannerItemData.data?.title!!)
+        TiaoZiUtil(bannerSlogan,bannerInvisibleSlogan,bannerItemData.data?.slogan!!)
     }
     fun setData(itemList: ArrayList<HomeItem>){
 

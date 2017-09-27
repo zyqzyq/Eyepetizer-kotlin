@@ -20,22 +20,44 @@
                 android:src="@mipmap/home_page_header_icon"
                 android:scaleType="centerInside"
                 android:padding="10dp" tools:ignore="ContentDescription"/>
-        <TextView
-                android:textColor="@android:color/white"
-                android:id="@+id/bannerTitle"
+        <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingStart="10dp"
-                android:paddingEnd="10dp"
-                android:textAppearance="?android:textAppearanceLarge"/>
-        <TextView
-                android:textColor="@android:color/white"
-                android:id="@+id/bannerSlogan"
+                android:paddingEnd="10dp">
+            <TextView
+                    android:textColor="@android:color/white"
+                    android:id="@+id/bannerTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:textAppearanceMedium"/>
+            <TextView
+                    android:textColor="@android:color/white"
+                    android:id="@+id/bannerInvisibleTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="invisible"
+                    android:textAppearance="?android:textAppearanceMedium"/>
+        </LinearLayout>
+        <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingStart="10dp"
-                android:paddingEnd="10dp"
-                android:textAppearance="?android:textAppearanceMedium"/>
+                android:paddingEnd="10dp">
+            <TextView
+                    android:textColor="@android:color/white"
+                    android:id="@+id/bannerSlogan"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:textAppearanceSmall"/>
+            <TextView
+                    android:textColor="@android:color/white"
+                    android:id="@+id/bannerInvisibleSlogan"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="invisible"
+                    android:textAppearance="?android:textAppearanceSmall"/>
+        </LinearLayout>
         <LinearLayout
                 android:id="@+id/bannerIndicators"
                 android:gravity="center_horizontal|bottom"

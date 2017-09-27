@@ -3,7 +3,7 @@ package com.zyqzyq.eyepetizer.util
 import android.widget.TextView
 import java.util.regex.Pattern
 
-class TiaoZiUtil(private val tv: TextView, private val s: String, private val time: Long = 700) {
+class TiaoZiUtil(private val tv: TextView,private val invisiableTv: TextView, private val s: String, private val time: Long = 700) {
 
     private val length: Int = s.length
     private var n = 0
@@ -22,16 +22,20 @@ class TiaoZiUtil(private val tv: TextView, private val s: String, private val ti
                             val p = Pattern.compile("[0-9]*")
 
                             var stv = s.substring(0, n)//截取要填充的字符串
-                            for (i in 0 until length-n) {
+                            val sitv = s.substring(n)
+                            /*for (i in 0 until length-n) {
                                 val m = p.matcher(s[i+n].toString())
                                 when {
                                     m.matches() -> stv += "\u3000" //中文空格
                                     (s[i+n]+"").toByteArray().size == 1 -> stv += "\u0020" //英文空格
                                     else -> stv += "\u3000" //中文空格
                                 }
-                            }
+                            }*/
 
-                            tv.post { tv.text = stv }
+                            tv.post {
+                                tv.text = stv
+                                invisiableTv.text = sitv
+                            }
                             Thread.sleep(time/length)//休息片刻
                             nn = n + 1//n+1；多截取一个
                             if (nn <= length) {//如果还有汉字，那么继续开启线程，相当于递归的感觉
