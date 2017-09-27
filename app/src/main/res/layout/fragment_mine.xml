@@ -1,13 +1,117 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              xmlns:tools="http://schemas.android.com/tools" android:orientation="vertical"
+              xmlns:tools="http://schemas.android.com/tools"
               android:layout_width="match_parent"
-              android:layout_height="match_parent">
+              android:layout_height="match_parent"
+              android:orientation="vertical"
+                android:layout_marginTop="?attr/actionBarSize">
+    <FrameLayout
+            android:layout_width="match_parent"
+            android:alpha="0.5"
+            android:layout_height="120dp">
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:gravity="center"
+                android:layout_height="match_parent" tools:ignore="UselessParent">
+
+            <ImageView
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_gravity="center"
+                    android:src="@mipmap/pgc_default_avatar" tools:ignore="ContentDescription"/>
+
+        </LinearLayout>
+
+    </FrameLayout>
 
     <TextView
-            android:text="mine fragment"
+            android:layout_marginTop="20dp"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/textView2"
-            tools:ignore="HardcodedText"/>
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="点击登录即可发表评论"
+            android:textColor="@android:color/darker_gray" tools:ignore="HardcodedText"/>
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="10dp">
+
+        <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center" tools:ignore="UseCompoundDrawables">
+
+            <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/ic_action_favorites_grey_without_padding" tools:ignore="ContentDescription"/>
+
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:layout_marginLeft="15dp"
+                    android:text="收藏"
+                    android:textColor="@android:color/darker_gray" tools:ignore="HardcodedText,RtlHardcoded"/>
+        </LinearLayout>
+        <View
+                android:layout_gravity="center_vertical"
+                android:background="@android:color/darker_gray"
+                android:layout_width="0.5dp"
+                android:layout_height="30dp">
+
+        </View>
+        <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center" tools:ignore="UseCompoundDrawables">
+
+            <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/ic_action_reply_grey_without_padding" tools:ignore="ContentDescription"/>
+
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="15dp"
+                    android:gravity="center"
+                    android:text="评论"
+                    android:textColor="@android:color/darker_gray" tools:ignore="HardcodedText,RtlHardcoded"/>
+        </LinearLayout>
+    </LinearLayout>
+    <View
+            android:background="@android:color/darker_gray"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"/>
+
+    <TextView
+            android:id="@+id/tv_save"
+            android:layout_marginTop="50dp"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:gravity="bottom|center_horizontal"
+            android:text="我的缓存"
+            android:textSize="14sp" tools:ignore="HardcodedText"/>
+
+    <TextView
+            android:id="@+id/tv_watch"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:gravity="bottom|center_horizontal"
+            android:text="观看记录"
+            android:textSize="14sp" tools:ignore="HardcodedText"/>
+
+    <TextView
+            android:id="@+id/tv_advise"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:gravity="bottom|center_horizontal"
+            android:text="意见反馈"
+            android:textSize="14sp" tools:ignore="HardcodedText"/>
+
 </LinearLayout>
