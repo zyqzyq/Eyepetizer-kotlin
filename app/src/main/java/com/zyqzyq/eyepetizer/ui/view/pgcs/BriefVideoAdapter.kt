@@ -25,6 +25,7 @@ class BriefVideoAdapter: RecyclerView.Adapter<BriefVideoAdapter.ViewHolder>(){
             it.setData(data[position])
             it.tvCategory.visibility = View.GONE
             it.blankView.visibility =View.VISIBLE
+            it.ivAvatar.visibility = View.GONE
             it.setOnClickListener {
                 val intent = Intent(it.context, PlayActivity::class.java)
                 intent.putExtra("data", data[position])

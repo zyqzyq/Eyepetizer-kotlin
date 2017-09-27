@@ -16,7 +16,7 @@ import kotlinx.android.synthetic.main.tabview.view.*
 import kotlinx.android.synthetic.main.toolbar.*
 import org.jetbrains.anko.toast
 import android.widget.Toast
-
+import org.jetbrains.anko.startActivity
 
 
 /**
@@ -50,24 +50,36 @@ class MainActivity : AppCompatActivity() {
         when(position){
             0 ->{toolbar.menu.getItem(0).setIcon(R.mipmap.ic_action_search_white)
                 toolbar.background.alpha = 0
-                    toolbarTitle.text = ""
-                    toolbar.title = ""
+                toolbarTitle.text = ""
+                toolbar.title = ""
+                toolbar.setOnClickListener {
+                    toast("6666")
+                }
                 }
             1 ->{ toolbar.menu.getItem(0).setIcon(R.mipmap.ic_action_search)
                     toolbar.background.alpha = 255
                     toolbarTitle.text = "Discover"
                     toolbar.title = "全部分类"
+                    toolbar.setOnClickListener {
+                        toast("6666")
+                    }
                 }
             2 ->{toolbar.menu.getItem(0).setIcon(R.mipmap.ic_action_search)
                 toolbar.background.alpha = 255
                 toolbarTitle.text = "Follow"
                 toolbar.title = "全部作者"
+                toolbar.setOnClickListener {
+                    startActivity<PgcsAllActivity>()
+                }
             }
             3 ->{
                 toolbar.menu.getItem(0).setIcon(R.mipmap.ic_menu_more)
                 toolbar.background.alpha = 0
                 toolbarTitle.text = ""
                 toolbar.title = ""
+                toolbar.setOnClickListener {
+                    toast("6666")
+                }
             }
         }
     }
