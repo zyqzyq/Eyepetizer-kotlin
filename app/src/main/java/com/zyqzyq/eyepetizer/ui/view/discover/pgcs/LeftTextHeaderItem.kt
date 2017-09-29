@@ -1,4 +1,4 @@
-package com.zyqzyq.eyepetizer.ui.view.pgcs
+package com.zyqzyq.eyepetizer.ui.view.discover.pgcs
 
 import android.content.Context
 import android.graphics.Typeface

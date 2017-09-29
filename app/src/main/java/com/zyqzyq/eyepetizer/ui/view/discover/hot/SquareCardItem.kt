@@ -1,11 +1,10 @@
-package com.zyqzyq.eyepetizer.ui.view.hot
+package com.zyqzyq.eyepetizer.ui.view.discover.hot
 
 import android.content.Context
 import android.support.v7.widget.LinearLayoutManager
 import android.util.AttributeSet
 import android.view.Gravity
 import android.view.View
-import android.view.ViewGroup
 import android.widget.FrameLayout
 import com.zyqzyq.eyepetizer.R
 import com.zyqzyq.eyepetizer.mvp.model.bean.HomeItem

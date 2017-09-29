@@ -56,7 +56,6 @@ class DiscoveryFragment: Fragment(),DiscoveryContract.View{
         //getSupportFragmentManager() 替换为getChildFragmentManager()解决切换后无法显示的问题
         val discoveryAdapter = DiscoveryAdapter(childFragmentManager,titleList,fragmentList)
         discoverViewPager.adapter = discoveryAdapter
-        discoverViewPager.offscreenPageLimit = 0
         discoverTabLayout.setupWithViewPager(discoverViewPager)
     }
 }

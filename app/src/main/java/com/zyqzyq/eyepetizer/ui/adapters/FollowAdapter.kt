@@ -1,16 +1,12 @@
 package com.zyqzyq.eyepetizer.ui.adapters
 
-import android.content.Intent
 import android.support.v7.widget.RecyclerView
 import android.view.View
 import android.view.ViewGroup
 import com.zyqzyq.eyepetizer.mvp.model.bean.HomeItem
-import com.zyqzyq.eyepetizer.ui.activities.PlayActivity
-import com.zyqzyq.eyepetizer.ui.view.category.CategoryScrollCardItem
-import com.zyqzyq.eyepetizer.ui.view.home.HomeStandardItem
-import com.zyqzyq.eyepetizer.ui.view.pgcs.BlankCardItem
-import com.zyqzyq.eyepetizer.ui.view.pgcs.BriefVideo
-import kotlinx.android.synthetic.main.item_home_standard.view.*
+import com.zyqzyq.eyepetizer.ui.view.discover.category.CategoryScrollCardItem
+import com.zyqzyq.eyepetizer.ui.view.discover.pgcs.BlankCardItem
+import com.zyqzyq.eyepetizer.ui.view.discover.pgcs.BriefVideo
 
 class FollowAdapter: RecyclerView.Adapter<FollowAdapter.ViewHolder>(){
     val TYPE_BRIEF_VIDEO = 1

@@ -39,6 +39,7 @@
                 android:layout_alignParentEnd="true"
                 android:background="@drawable/selector_button_standard"
                 android:layout_marginEnd="10dp"
+                android:id="@+id/categoryForceBtn"
                 tools:ignore="HardcodedText"/>
     </RelativeLayout>
 

@@ -1,8 +1,6 @@
 package com.zyqzyq.eyepetizer.network
 
-import com.zyqzyq.eyepetizer.mvp.model.bean.DiscoveryTabInfo
-import com.zyqzyq.eyepetizer.mvp.model.bean.HomeBean
-import com.zyqzyq.eyepetizer.mvp.model.bean.HomeItem
+import com.zyqzyq.eyepetizer.mvp.model.bean.*
 import io.reactivex.Observable
 import retrofit2.http.GET
 import retrofit2.http.Query
@@ -59,4 +57,23 @@ interface ApiService {
      */
     @GET
     fun getMoreFollowData(@Url url: String): Observable<HomeBean>
+
+    /**
+     * 获取全部分类
+     */
+    @GET("v4/categories")
+    fun getCategoryData():Observable<ArrayList<CategoryBean>>
+
+
+    /**
+     * 获取分类下的全部数据
+     */
+    @GET("v4/categories/detail/tab")
+    fun getCategoryDetail(@Query("id") id: Long): Observable<CategoryDetailTab>
+
+    /**
+     * 获取分类下一级分页的数据
+     */
+    @GET
+    fun getCategoryDetailTab(@Url url: String): Observable<HomeBean>
 }

@@ -1,4 +1,4 @@
-package com.zyqzyq.eyepetizer.ui.view.hot
+package com.zyqzyq.eyepetizer.ui.view.discover.hot
 
 import android.support.v7.widget.RecyclerView
 import android.view.Gravity

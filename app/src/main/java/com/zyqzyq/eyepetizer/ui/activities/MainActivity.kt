@@ -61,7 +61,7 @@ class MainActivity : AppCompatActivity() {
                     toolbarTitle.text = "Discover"
                     toolbar.title = "全部分类"
                     toolbar.setOnClickListener {
-                        toast("6666")
+                        startActivity<CategoryActivity>()
                     }
                 }
             2 ->{toolbar.menu.getItem(0).setIcon(R.mipmap.ic_action_search)

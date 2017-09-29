@@ -1,15 +1,14 @@
-package com.zyqzyq.eyepetizer.ui.view.hot
+package com.zyqzyq.eyepetizer.ui.view.discover.hot
 
 import android.content.Context
 import android.util.AttributeSet
 import android.view.View
 import android.widget.FrameLayout
-import com.youth.banner.Banner
 import com.youth.banner.BannerConfig
 import com.youth.banner.Transformer
 import com.zyqzyq.eyepetizer.R
 import com.zyqzyq.eyepetizer.mvp.model.bean.HomeItem
-import com.zyqzyq.eyepetizer.ui.view.GlideImageLoader
+import com.zyqzyq.eyepetizer.ui.view.discover.GlideImageLoader
 import kotlinx.android.synthetic.main.item_hot_banner.view.*
 
 

@@ -33,6 +33,10 @@
         </activity>
         <activity android:name=".ui.activities.PgcsAllActivity">
         </activity>
+        <activity android:name=".ui.activities.CategoryActivity">
+        </activity>
+        <activity android:name=".ui.activities.CategoryDetailActivity">
+        </activity>
     </application>
 
 </manifest>

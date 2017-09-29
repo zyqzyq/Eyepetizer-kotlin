@@ -4,7 +4,7 @@ import android.support.v7.widget.RecyclerView
 import android.view.View
 import android.view.ViewGroup
 import com.zyqzyq.eyepetizer.mvp.model.bean.HomeItem
-import com.zyqzyq.eyepetizer.ui.view.category.CategoryScrollCardItem
+import com.zyqzyq.eyepetizer.ui.view.discover.category.CategoryScrollCardItem
 
 
 class DiscoveryCategoryAdapter : RecyclerView.Adapter<DiscoveryCategoryAdapter.ViewHolder>(){

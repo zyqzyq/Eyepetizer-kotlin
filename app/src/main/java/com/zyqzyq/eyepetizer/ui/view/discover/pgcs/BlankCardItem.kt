@@ -1,13 +1,10 @@
-package com.zyqzyq.eyepetizer.ui.view.pgcs
+package com.zyqzyq.eyepetizer.ui.view.discover.pgcs
 
 import android.content.Context
-import android.graphics.Typeface
 import android.util.AttributeSet
 import android.view.View
 import android.widget.FrameLayout
-import android.widget.RelativeLayout
 import com.zyqzyq.eyepetizer.R
-import com.zyqzyq.eyepetizer.util.DisplayManager
 import kotlinx.android.synthetic.main.item_standard_text.view.*
 
 class BlankCardItem : FrameLayout {

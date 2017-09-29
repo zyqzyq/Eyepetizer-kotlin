@@ -8,8 +8,8 @@ import com.zyqzyq.eyepetizer.mvp.model.bean.HomeItem
 import com.zyqzyq.eyepetizer.ui.activities.PlayActivity
 import com.zyqzyq.eyepetizer.ui.view.home.HomeStandardItem
 import com.zyqzyq.eyepetizer.ui.view.home.HomeTextHeaderItem
-import com.zyqzyq.eyepetizer.ui.view.hot.ScrollCardItem
-import com.zyqzyq.eyepetizer.ui.view.hot.SquareCardItem
+import com.zyqzyq.eyepetizer.ui.view.discover.hot.ScrollCardItem
+import com.zyqzyq.eyepetizer.ui.view.discover.hot.SquareCardItem
 
 class DiscoveryHotAdapter : RecyclerView.Adapter<DiscoveryHotAdapter.ViewHolder>(){
     private val TYPE_SCROLL_CARD = 1

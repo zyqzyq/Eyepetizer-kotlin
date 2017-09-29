@@ -16,3 +16,4 @@ object MainData {
 
 val DAILY = "http://baobab.kaiyanapp.com/api/v4/tabs/selected"
 const val PACS_ALL = "http://baobab.kaiyanapp.com/api/v4/pgcs/all"
+const val CATEGORY_DETAIL_TAB = "http://baobab.kaiyanapp.com/api/v4/categories/detail/tab?id=36"

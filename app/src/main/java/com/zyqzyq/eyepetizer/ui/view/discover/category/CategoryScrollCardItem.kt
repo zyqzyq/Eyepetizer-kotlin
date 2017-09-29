@@ -1,17 +1,15 @@
-package com.zyqzyq.eyepetizer.ui.view.category
+package com.zyqzyq.eyepetizer.ui.view.discover.category
 
 import android.content.Context
 import android.content.Intent
 import android.graphics.Color
-import android.text.Html
 import android.util.AttributeSet
 import android.view.View
 import android.widget.FrameLayout
 import com.youth.banner.BannerConfig
-import com.youth.banner.Transformer
 import com.zyqzyq.eyepetizer.R
 import com.zyqzyq.eyepetizer.mvp.model.bean.HomeItem
-import com.zyqzyq.eyepetizer.ui.view.GlideImageLoader
+import com.zyqzyq.eyepetizer.ui.view.discover.GlideImageLoader
 import kotlinx.android.synthetic.main.item_category_scroll.view.*
 import android.text.Spanned
 import android.text.style.ForegroundColorSpan
@@ -35,9 +33,16 @@ class CategoryScrollCardItem: FrameLayout{
     }
     fun setData(data: HomeItem?){
         categoryTitle.text = data?.data?.header?.title ?: "热门排行"
+        if (data?.data?.header?.title == "最近更新"){
+            categoryForceBtn.visibility = View.GONE
+            categorySubTitle.visibility = View.GONE
+        }
+        else{
+            categorySubTitle.visibility = View.VISIBLE
+        }
         categoryTitle.paint.isFakeBoldText = true
         categoryTitle.setTextColor(Color.BLACK)
-        categorySubTitle.text = data?.data?.header?.subtitle ?: "热门排行sub"
+        categorySubTitle.text = data?.data?.header?.subtitle ?: " "
 
         val images = arrayListOf<String>()
         val titles = arrayListOf<SpannableString>()

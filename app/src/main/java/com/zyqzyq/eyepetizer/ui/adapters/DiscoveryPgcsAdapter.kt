@@ -4,10 +4,10 @@ import android.support.v7.widget.RecyclerView
 import android.view.View
 import android.view.ViewGroup
 import com.zyqzyq.eyepetizer.mvp.model.bean.HomeItem
-import com.zyqzyq.eyepetizer.ui.view.pgcs.BlankCardItem
-import com.zyqzyq.eyepetizer.ui.view.pgcs.BriefCardItem
-import com.zyqzyq.eyepetizer.ui.view.pgcs.BriefVideo
-import com.zyqzyq.eyepetizer.ui.view.pgcs.LeftTextHeaderItem
+import com.zyqzyq.eyepetizer.ui.view.discover.pgcs.BlankCardItem
+import com.zyqzyq.eyepetizer.ui.view.discover.pgcs.BriefCardItem
+import com.zyqzyq.eyepetizer.ui.view.discover.pgcs.BriefVideo
+import com.zyqzyq.eyepetizer.ui.view.discover.pgcs.LeftTextHeaderItem
 
 class DiscoveryPgcsAdapter: RecyclerView.Adapter<DiscoveryPgcsAdapter.ViewHolder>(){
 

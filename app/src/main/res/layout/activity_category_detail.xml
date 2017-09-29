@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".ui.activities.CategoryDetailActivity">
+    <include layout="@layout/toolbar"/>
+    <ScrollView android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/categoryDetailScrollView">
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="360dp">
+            <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/categoryDetailHeaderImage"
+                    android:src="@mipmap/pgc_default_avatar"/>
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:id="@+id/categoryDetailTitle"
+                    android:textColor="@android:color/white"
+                    android:textAppearance="?android:textAppearanceLarge"
+                    android:text="Title"/>
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_below="@id/categoryDetailTitle"
+                    android:id="@+id/categoryDetailDescription"
+                    android:textColor="@android:color/white"
+                    android:text="description"
+                    android:textAppearance="?android:textAppearanceSmall"/>
+
+            <Button android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:text="+关注"
+                    android:minHeight="0dp"
+                    android:textColor="@android:color/white"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginBottom="60dp"
+                    android:background="@drawable/button_sharp_white"/>
+        </RelativeLayout>
+            <android.support.design.widget.TabLayout
+                    android:id="@+id/categoryDetailTabLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:background="@android:color/white"
+                    app:tabTextColor="@android:color/darker_gray"
+                    app:tabSelectedTextColor="@android:color/black"
+                    app:tabIndicatorColor="@android:color/black"
+                    app:tabGravity="fill">
+            </android.support.design.widget.TabLayout>
+            <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:background="@android:color/darker_gray"
+                    tools:ignore="RtlHardcoded"/>
+            <com.zyqzyq.eyepetizer.util.CustomViewPager
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/categoryDetailViewPager">
+            </com.zyqzyq.eyepetizer.util.CustomViewPager>
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

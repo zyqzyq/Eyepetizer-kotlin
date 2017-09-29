@@ -1,4 +1,4 @@
-package com.zyqzyq.eyepetizer.ui.view
+package com.zyqzyq.eyepetizer.ui.view.discover
 
 import android.content.Context
 import android.widget.ImageView
