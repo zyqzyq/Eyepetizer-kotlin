@@ -1,0 +1,21 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.NoActionBar">
+        <!-- Customize your theme here. -->
+        <!--隐藏状态栏-->
+        <item name="android:windowFullscreen">false</item>
+        <!--状态栏透明-->
+        <item name="android:windowTranslucentStatus">true</item>
+        <item name="android:fitsSystemWindows">true</item>
+        <!--<item name="android:statusBarColor">@android:color/transparent</item>-->
+        <!--底部导航栏透明-->
+        <!--<item name="android:windowTranslucentNavigation">true</item>-->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:windowBackground">@color/windowBg</item>
+        <item name="android:textColor">@color/colorDefaultText</item>
+    </style>
+
+</resources>

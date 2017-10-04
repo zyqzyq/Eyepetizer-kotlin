@@ -9,7 +9,9 @@ import android.widget.TextView
 import com.bumptech.glide.Glide
 import com.zyqzyq.eyepetizer.R
 import com.zyqzyq.eyepetizer.mvp.model.bean.HomeItem
+import com.zyqzyq.eyepetizer.ui.activities.RanklistActivity
 import com.zyqzyq.eyepetizer.util.DisplayManager
+import org.jetbrains.anko.startActivity
 
 class SquareCardAdapter: RecyclerView.Adapter<SquareCardAdapter.ViewHolder>(){
     private val TYPE_SQUARE_CARD = 1
@@ -28,8 +30,13 @@ class SquareCardAdapter: RecyclerView.Adapter<SquareCardAdapter.ViewHolder>(){
         when(itemViewType){
             TYPE_SQUARE_CARD -> (holder?.itemView as ImageView).let {
                 Glide.with(it.context).load(data[position].data?.image).centerCrop().into(it)
+                it.setOnClickListener { it.context.startActivity<RanklistActivity>() }
+
             }
-            TYPE_ACTION_CARD -> (holder?.itemView as TextView).text = data[position].data?.text
+            TYPE_ACTION_CARD -> (holder?.itemView as TextView).let{
+                it.text = data[position].data?.text
+                it.setOnClickListener { it.context.startActivity<RanklistActivity>() }
+            }
         }
     }
 

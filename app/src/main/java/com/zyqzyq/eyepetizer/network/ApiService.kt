@@ -76,4 +76,16 @@ interface ApiService {
      */
     @GET
     fun getCategoryDetailTab(@Url url: String): Observable<HomeBean>
+
+    /**
+     * 获取排行榜
+     */
+    @GET("v4/rankList")
+    fun getRankList(): Observable<DiscoveryTabInfo>
+
+    /**
+     * 获取排行榜下分类的数据
+     */
+    @GET
+    fun getRankListItemData(@Url url: String): Observable<HomeBean>
 }

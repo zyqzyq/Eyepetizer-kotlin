@@ -7,6 +7,8 @@
         <item name="android:windowFullscreen">false</item>
         <!--状态栏透明-->
         <item name="android:windowTranslucentStatus">true</item>
+        <item name="android:fitsSystemWindows">true</item>
+        <!--<item name="android:statusBarColor">@android:color/transparent</item>-->
         <!--底部导航栏透明-->
         <!--<item name="android:windowTranslucentNavigation">true</item>-->
         <item name="colorPrimary">@color/colorPrimary</item>

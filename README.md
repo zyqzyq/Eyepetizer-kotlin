@@ -10,7 +10,9 @@
     全部作者页面
     全部分类页面
     分类详情页面（包含首页，全部，作者，专辑）
- 
+    排行榜页面（包含周排行，月排行，总排行）
+    搜索页面
+    
 # 目前进度 
 
 ## 启动页面
@@ -45,7 +47,11 @@
     使用gridView显示分类列表（不知道热门排行，热门专题，360全景的api就没添加）
 ## 分类详情页面
     scrollView + tabLayout + viewPager + Fragment  实现4个小分页的显示
+    
+## 排行榜页面
+    使用和发现页面类似的方法，由于子页面数据类型一样，用同一个fragment实现。
 ## bug
+    statusBar无法完全透明（研究下解决解决）
     打开首页会占用音频播放导致音乐播放器停止工作(考虑空的播放器能否禁用声音，假装这个锅不是我的)
     播放视频时莫名的会停止（有时候没问题，在研究研究，毫无头绪）
     发现分类小页面左右滑动时候感觉效果和模仿的不一样（考虑过段时间改用recyclerView重新实现看看效果）
@@ -54,6 +60,7 @@
     实现搜索页面和热门页面
     准备优化屏幕显示
     修复bug
+    有大佬说加个缓存会更好
    
 # 实现方式
     TabLayout+Fragment 实现底部导航栏(这个感觉还是比较简单的，网上抄了就懂了)
@@ -69,4 +76,5 @@
     https://github.com/kaikaixue/Eyepetizer
     https://github.com/LRH1993/Eyepetizer-in-Kotlin
     https://github.com/youth5201314/banner
+    https://github.com/CarGuo/GSYVideoPlayer
     感谢大佬们的资源，向大佬们学习。
