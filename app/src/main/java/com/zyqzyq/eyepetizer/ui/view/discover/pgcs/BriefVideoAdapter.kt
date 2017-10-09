@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import com.zyqzyq.eyepetizer.mvp.model.bean.HomeItem
 import com.zyqzyq.eyepetizer.ui.activities.PlayActivity
 import com.zyqzyq.eyepetizer.ui.view.home.HomeStandardItem
+import com.zyqzyq.eyepetizer.util.DisplayManager
 import kotlinx.android.synthetic.main.item_home_standard.view.*
 
 class BriefVideoAdapter: RecyclerView.Adapter<BriefVideoAdapter.ViewHolder>(){
@@ -35,6 +36,7 @@ class BriefVideoAdapter: RecyclerView.Adapter<BriefVideoAdapter.ViewHolder>(){
 
     override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): ViewHolder {
         val videoView = HomeStandardItem(parent!!.context)
+        videoView.layoutParams = RecyclerView.LayoutParams(DisplayManager.dip2px(320f)!!.toInt(), RecyclerView.LayoutParams.MATCH_PARENT)
         return ViewHolder(videoView)
     }
 

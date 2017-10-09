@@ -37,8 +37,6 @@ class ScrollCardItem: FrameLayout {
         for (i in 0 until data!!.size){
             images.add(data!![i].data?.image!! )
         }
-        val titles = arrayListOf("nihao","wohao","dajiahao")
-
 
         hotBanner.setBannerStyle(BannerConfig.CIRCLE_INDICATOR)
         //设置图片加载器

@@ -45,7 +45,7 @@
 
     <com.youth.banner.Banner
             android:layout_width="match_parent"
-            android:layout_height="430dp"
+            android:layout_height="320dp"
             android:id="@+id/categoryBanner"
             android:layout_below="@id/categoryTitleLayout"
             app:image_scale_type="center_inside"
