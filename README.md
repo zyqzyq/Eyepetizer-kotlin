@@ -3,6 +3,7 @@
     主要是为了通过仿写APP更好的学习kotlin(选择该APP原因主要是因为有大佬已经写过了，站在巨人的肩膀站得高看的远)
     
  [gitHub地址](https://github.com/zyqzyq/Eyepetizer-kotlin)
+ 
 # 计划(基本完成)
     主页
     发现页面（包含热门，分类，作者）
@@ -64,6 +65,7 @@
     与发现作者小页面一样
 ## 全部分类页面
 ![](https://github.com/zyqzyq/Eyepetizer-kotlin/blob/master/screenshots/categoryAll.png)
+
     使用gridView显示分类列表（不知道热门排行，热门专题，360全景的api就没添加）
 ## 分类详情页面
 ![](https://github.com/zyqzyq/Eyepetizer-kotlin/blob/master/screenshots/categoryDetail.png)
