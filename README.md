@@ -1,8 +1,9 @@
 
 # Eyepetizer
     主要是为了通过仿写APP更好的学习kotlin(选择该APP原因主要是因为有大佬已经写过了，站在巨人的肩膀站得高看的远)
-
-# 计划
+    
+ [gitHub地址](https://github.com/zyqzyq/Eyepetizer-kotlin)
+# 计划(基本完成)
     主页
     发现页面（包含热门，分类，作者）
     关注页面
@@ -17,7 +18,7 @@
 
 ## 启动页面
 
-![splash](https://github.com/zyqzyq/Eyepetizer-kotlin/blob/master/screenshots/splash.png)
+
 ![](https://github.com/zyqzyq/Eyepetizer-kotlin/blob/master/screenshots/splash.png)
 
     开启启动画面渐变 ( Handler+Thread )
@@ -30,9 +31,11 @@
     实现每日精选文字逐字显示
     实现下拉放大图片刷新
     增加再按一次退出提示
-## 播放页面
-![play](https://github.com/zyqzyq/Eyepetizer-kotlin/blob/master/screenshots/categoryDetail.png)
     
+## 播放页面
+![play](https://github.com/zyqzyq/Eyepetizer-kotlin/blob/master/screenshots/play1.png)
+![play](https://github.com/zyqzyq/Eyepetizer-kotlin/blob/master/screenshots/play2.png)
+
     旋转和点击控制全屏播放
     实现显示作品相关信息(暂未实现缓存功能)
     实现相关视频推荐
@@ -49,31 +52,32 @@
     实现作者小页面
     使用横向的recyclerView实现最新作者推荐栏的滑动
 ## 关注页面
-![play](https://github.com/zyqzyq/Eyepetizer-kotlin/blob/master/screenshots/follow.png)
+![](https://github.com/zyqzyq/Eyepetizer-kotlin/blob/master/screenshots/follow.png)
     
     主要调用之前的fragment 快速实现
 ## 我的页面
     主要就显示显示（准备实现缓存功能）
 ## 全部作者页面
-![play](https://github.com/zyqzyq/Eyepetizer-kotlin/blob/master/screenshots/pgcsAll.png)
+![](https://github.com/zyqzyq/Eyepetizer-kotlin/blob/master/screenshots/pgcsAll.png)
     
     与发现作者小页面一样
 ## 全部分类页面
+![](https://github.com/zyqzyq/Eyepetizer-kotlin/blob/master/screenshots/categoryAll.png)
     使用gridView显示分类列表（不知道热门排行，热门专题，360全景的api就没添加）
 ## 分类详情页面
-![play](https://github.com/zyqzyq/Eyepetizer-kotlin/blob/master/screenshots/categoryDetail.png)
+![](https://github.com/zyqzyq/Eyepetizer-kotlin/blob/master/screenshots/categoryDetail.png)
     
     scrollView + tabLayout + viewPager + Fragment  实现4个小分页的显示
     
 ## 排行榜页面
-![play](https://github.com/zyqzyq/Eyepetizer-kotlin/blob/master/screenshots/rankList1.png)
-![play](https://github.com/zyqzyq/Eyepetizer-kotlin/blob/master/screenshots/rankList2.png)
+![](https://github.com/zyqzyq/Eyepetizer-kotlin/blob/master/screenshots/rankList1.png)
+![](https://github.com/zyqzyq/Eyepetizer-kotlin/blob/master/screenshots/rankList2.png)
     
     使用和发现页面类似的方法，由于子页面数据类型一样，用同一个fragment实现。
     
 ## 搜索页面
-![play](https://github.com/zyqzyq/Eyepetizer-kotlin/blob/master/screenshots/search1.png)
-![play](https://github.com/zyqzyq/Eyepetizer-kotlin/blob/master/screenshots/search2.png)
+![](https://github.com/zyqzyq/Eyepetizer-kotlin/blob/master/screenshots/search1.png)
+![](https://github.com/zyqzyq/Eyepetizer-kotlin/blob/master/screenshots/search2.png)
 
     偷懒使用了activity + recyclerView简单实现
     
