@@ -24,6 +24,7 @@
     开启启动画面渐变 ( Handler+Thread )
 
 ## 首页
+
 ![home](https://github.com/zyqzyq/Eyepetizer-kotlin/blob/master/screenshots/home.png)
 
     显示每日精选自动轮播自动播放5秒小视频介绍 (viewpager + indicator)(增加无限循环，优化最后一页跳转卡顿)
