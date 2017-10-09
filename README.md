@@ -16,7 +16,7 @@
 # 目前进度 
 
 ## 启动页面
-    ![](https://github.com/zyqzyq/Eyepetizer-kotlin/blob/master/screenshots/splash.png)
+![](https://github.com/zyqzyq/Eyepetizer-kotlin/blob/master/screenshots/splash.png)
     开启启动画面渐变 ( Handler+Thread )
 
 ## 首页
