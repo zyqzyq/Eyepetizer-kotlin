@@ -30,7 +30,6 @@ class PlayInfoItem : LinearLayout {
         playInfoFavoritesNum.text = item.data?.consumption?.collectionCount.toString()
         playInfoShareNum.text = item.data?.consumption?.shareCount.toString()
         playInfoReplyNum.text = item.data?.consumption?.replyCount.toString()
-        item.data?.playUrl
         playInfoFavoritesImg.setOnClickListener { context.toast("手动点赞成功") }
         playInfoShareImg.setOnClickListener { context.toast("分享失败,希望版本更新后能成功") }
         playInfoReplyImg.setOnClickListener { context.toast("评论部分暂未实现") }
