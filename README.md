@@ -17,6 +17,8 @@
 
 ## 启动页面
 ![splash](https://github.com/zyqzyq/Eyepetizer-kotlin/blob/master/screenshots/splash.png)
+![](https://github.com/zyqzyq/Eyepetizer-kotlin/blob/master/screenshots/splash.png)
+>>>>>>> c446e49e621d2188c69f3a8cd5fda86c470974f0
     开启启动画面渐变 ( Handler+Thread )
 
 ## 首页
