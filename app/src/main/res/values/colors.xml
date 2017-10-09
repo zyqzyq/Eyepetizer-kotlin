@@ -6,5 +6,5 @@
     <color name="windowBg">#FFFFFF</color>
     <color name="colorDefaultText">#000000</color>
     <color name="toolBarBg">#FFFFFF</color>
-
+    <color name="transparent">#0000</color>
 </resources>

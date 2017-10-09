@@ -37,7 +37,6 @@ class BannerAdapter: PagerAdapter(){
                 viewList.add(homeBannerItem)
             }
         }
-
         val view = viewList[position%itemCount]
         container?.addView(view)
         viewList[position%itemCount].play()

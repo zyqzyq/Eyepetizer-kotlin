@@ -88,4 +88,10 @@ interface ApiService {
      */
     @GET
     fun getRankListItemData(@Url url: String): Observable<HomeBean>
+
+    @GET("v1/search")
+    fun getSearchData(@Query("query") data: String): Observable<HomeBean>
+
+    @GET
+    fun getMoreSearchData(@Url url: String): Observable<HomeBean>
 }

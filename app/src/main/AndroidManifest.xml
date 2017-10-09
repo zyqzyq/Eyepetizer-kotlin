@@ -16,7 +16,7 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".ui.activities.MainActivity"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".ui.activities.SplashActivity"
             android:screenOrientation="portrait">
@@ -28,11 +28,12 @@
         </activity>
         <activity
             android:name=".ui.activities.PlayActivity"
-            android:configChanges="keyboardHidden|orientation|screenSize"></activity>
-        <activity android:name=".ui.activities.PgcsAllActivity"></activity>
-        <activity android:name=".ui.activities.CategoryActivity"></activity>
-        <activity android:name=".ui.activities.CategoryDetailActivity"></activity>
-        <activity android:name=".ui.activities.RanklistActivity"></activity>
+            android:configChanges="keyboardHidden|orientation|screenSize" />
+        <activity android:name=".ui.activities.PgcsAllActivity" />
+        <activity android:name=".ui.activities.CategoryActivity" />
+        <activity android:name=".ui.activities.CategoryDetailActivity" />
+        <activity android:name=".ui.activities.RanklistActivity" />
+        <activity android:name=".ui.activities.SearchActivity"></activity>
     </application>
 
 </manifest>

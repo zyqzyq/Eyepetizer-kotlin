@@ -3,6 +3,7 @@ package com.zyqzyq.eyepetizer.ui.activities
 import android.content.Context
 import android.graphics.Color
 import android.graphics.Typeface
+import android.os.Build
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.design.widget.TabLayout
@@ -17,6 +18,10 @@ import kotlinx.android.synthetic.main.toolbar.*
 import org.jetbrains.anko.toast
 import android.widget.Toast
 import org.jetbrains.anko.startActivity
+import android.view.WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS
+import android.view.WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS
+import android.os.Build.VERSION_CODES.LOLLIPOP
+import android.view.WindowManager
 
 
 /**
@@ -29,7 +34,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN;
+//        window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN;
         initToolbar()
         initView()
     }
@@ -42,7 +47,7 @@ class MainActivity : AppCompatActivity() {
         toolbarTitle.typeface = Typeface.createFromAsset(this.assets, "fonts/Lobster-1.4.otf")
         toolbar.setOnMenuItemClickListener { item ->
             when (item.itemId) {
-                R.id.app_bar_search -> toast("searching")
+                R.id.app_bar_search -> startActivity<SearchActivity>()
             }
             true
         }
