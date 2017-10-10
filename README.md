@@ -25,7 +25,7 @@
 
 ## 首页
 
-![home](https://github.com/zyqzyq/Eyepetizer-kotlin/blob/master/screenshots/home.png)
+![](https://github.com/zyqzyq/Eyepetizer-kotlin/blob/master/screenshots/home.png)
 
     显示每日精选自动轮播自动播放5秒小视频介绍 (viewpager + indicator)(增加无限循环，优化最后一页跳转卡顿)
     显示推荐视频选项（简单的添加显示在recyclerView中 ）（每日精选的视频右下角添加图片标识）
@@ -34,15 +34,15 @@
     增加再按一次退出提示
     
 ## 播放页面
-![play](https://github.com/zyqzyq/Eyepetizer-kotlin/blob/master/screenshots/play1.png)
-![play](https://github.com/zyqzyq/Eyepetizer-kotlin/blob/master/screenshots/play2.png)
+![](https://github.com/zyqzyq/Eyepetizer-kotlin/blob/master/screenshots/play1.png)
+![](https://github.com/zyqzyq/Eyepetizer-kotlin/blob/master/screenshots/play2.png)
 
     旋转和点击控制全屏播放
     实现显示作品相关信息(暂未实现缓存功能)
     实现相关视频推荐
 ## 发现页面
-![play](https://github.com/zyqzyq/Eyepetizer-kotlin/blob/master/screenshots/discoverHot.png)
-![play](https://github.com/zyqzyq/Eyepetizer-kotlin/blob/master/screenshots/discoverCategory.png)
+![](https://github.com/zyqzyq/Eyepetizer-kotlin/blob/master/screenshots/discoverHot.png)
+![](https://github.com/zyqzyq/Eyepetizer-kotlin/blob/master/screenshots/discoverCategory.png)
     
     实现热门小页面
     实现banner轮播图（用的git大佬的轮子,链接在最底下）
@@ -64,6 +64,7 @@
     与发现作者小页面一样
 ## 全部分类页面
 ![](https://github.com/zyqzyq/Eyepetizer-kotlin/blob/master/screenshots/categoryAll.png)
+
     使用gridView显示分类列表（不知道热门排行，热门专题，360全景的api就没添加）
 ## 分类详情页面
 ![](https://github.com/zyqzyq/Eyepetizer-kotlin/blob/master/screenshots/categoryDetail.png)

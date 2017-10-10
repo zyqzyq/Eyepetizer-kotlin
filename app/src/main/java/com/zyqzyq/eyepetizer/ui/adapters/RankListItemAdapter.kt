@@ -1,10 +1,12 @@
 package com.zyqzyq.eyepetizer.ui.adapters
 
+import android.content.Intent
 import android.graphics.Color
 import android.support.v7.widget.RecyclerView
 import android.view.View
 import android.view.ViewGroup
 import com.zyqzyq.eyepetizer.mvp.model.bean.HomeItem
+import com.zyqzyq.eyepetizer.ui.activities.PlayActivity
 import com.zyqzyq.eyepetizer.ui.view.RankListItem
 import com.zyqzyq.eyepetizer.ui.view.play.PlayEndItem
 import kotlinx.android.synthetic.main.item_standard_text.view.*
@@ -37,14 +39,21 @@ class RankListItemAdapter : RecyclerView.Adapter<RankListItemAdapter.ViewHolder>
     override fun onBindViewHolder(holder: ViewHolder?, position: Int) {
         val viewType = getItemViewType(position)
         when(viewType){
-            TYPE_VIDEO -> (holder?.itemView as RankListItem).setData(data[position])
-            TYPE_END -> (holder?.itemView as PlayEndItem).let {
+            TYPE_VIDEO -> (holder?.itemView as RankListItem).let{
+                it.setData(data[position])
+                it.setOnClickListener {
+                    val intent = Intent(it.context, PlayActivity::class.java)
+                    intent.putExtra("data", data[position])
+                    it.context.startActivity(intent)
+                }
+            }
+                TYPE_END -> (holder?.itemView as PlayEndItem).let {
                 it.standardText.setTextColor(Color.BLACK)
                 it.setShow(true)
             }
+            }
         }
 
-    }
 
     override fun getItemCount(): Int {
         return data.size + 1
