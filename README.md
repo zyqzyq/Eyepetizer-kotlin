@@ -3,6 +3,7 @@
     主要是为了通过仿写APP更好的学习kotlin(选择该APP原因主要是因为有大佬已经写过了，站在巨人的肩膀站得高看的远)
     
  [gitHub地址](https://github.com/zyqzyq/Eyepetizer-kotlin)
+ 
 # 计划(基本完成)
     主页
     发现页面（包含热门，分类，作者）
